@@ -65,8 +65,14 @@ const Layout: React.FC<LayoutProps> = ({
         />
         <meta property="og:locale" content={siteConfig.seo.openGraph.locale} />
         <meta property="og:image" content={ogImageUrl} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:width"
+          content={siteConfig.seo.openGraph.images[0].width.toString()}
+        />
+        <meta
+          property="og:image:height"
+          content={siteConfig.seo.openGraph.images[0].height.toString()}
+        />
         <meta
           property="og:image:alt"
           content={siteConfig.seo.openGraph.images[0].alt}

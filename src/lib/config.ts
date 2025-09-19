@@ -66,9 +66,9 @@ export const siteConfig: SiteConfig = {
       siteName: "Chanwoo Noh",
       images: [
         {
-          url: "https://rajephon.dev/og-image.jpg",
-          width: 1200,
-          height: 630,
+          url: "https://rajephon.dev/profile.png",
+          width: 512,
+          height: 512,
           alt: "Chanwoo Noh - Backend Engineer",
         },
       ],

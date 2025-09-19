@@ -58,6 +58,18 @@ export default function Document() {
 
         {/* Manifest */}
         <link rel="manifest" href="/site.webmanifest" />
+
+        {/* OpenGraph / Social Media Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Rajephon.dev" />
+        <meta property="og:image" content="https://rajephon.dev/profile.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:type" content="image/png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://rajephon.dev/profile.png" />
       </Head>
       <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         <Main />

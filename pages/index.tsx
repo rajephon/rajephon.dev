@@ -5,6 +5,7 @@
 import React from "react";
 import { GetStaticProps } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Layout from "@/components/Layout";
 import { HomePageProps } from "@/lib/component-interfaces";
 import { siteConfig } from "@/lib/config";
@@ -17,8 +18,22 @@ const HomePage: React.FC<HomePageProps> = ({ siteConfig: config }) => {
       showNavigation={false} // Hide navigation for minimal design
     >
       <div className="max-w-4xl mx-auto px-4 py-16">
+        {/* Profile Image */}
+        <div className="flex justify-center mb-8">
+          <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-gray-200 dark:border-gray-700 shadow-lg">
+            <Image
+              src="/profile.png"
+              alt="Chanwoo Noh"
+              fill
+              className="object-cover"
+              style={{ objectPosition: "50% 50%" }}
+              priority
+            />
+          </div>
+        </div>
+
         {/* Simple text-based content */}
-        <h1 className="text-3xl font-bold mb-4">{config.author}</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center">{config.author}</h1>
 
         <p className="text-lg mb-8">
           Backend engineer with 8 years of experience designing scalable
