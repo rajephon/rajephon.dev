@@ -55,13 +55,13 @@ jobs:
         NODE_ENV: production
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build-files
         path: out/
-        
+
     - name: Upload PDF artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: resume-pdf
         path: public/resume.pdf
