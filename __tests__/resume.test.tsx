@@ -68,7 +68,14 @@ const MockResumePage: React.FC<MockResumePageProps> = ({
     <div data-testid="resume-page" lang={currentLanguage}>
       <div data-testid="language-toggle">
         <button
+          data-testid="language-toggle-button"
           onClick={() => setCurrentLanguage(currentLanguage === 'en' ? 'ko' : 'en')}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setCurrentLanguage(currentLanguage === 'en' ? 'ko' : 'en');
+            }
+          }}
           aria-label="Toggle language between English and Korean"
         >
           <span className={currentLanguage === 'en' ? 'text-blue-600' : 'text-gray-600'}>EN</span>
@@ -167,7 +174,7 @@ describe('Bilingual Resume Page Integration Tests', () => {
       expect(screen.getByTestId('resume-name')).toHaveTextContent('John Doe');
       
       // Click language toggle
-      fireEvent.click(screen.getByTestId('language-toggle'));
+      fireEvent.click(screen.getByTestId('language-toggle-button'));
       
       // Verify Korean content is displayed
       await waitFor(() => {
@@ -183,7 +190,7 @@ describe('Bilingual Resume Page Integration Tests', () => {
       expect(screen.getByTestId('resume-name')).toHaveTextContent('홍길동');
       
       // Click language toggle
-      fireEvent.click(screen.getByTestId('language-toggle'));
+      fireEvent.click(screen.getByTestId('language-toggle-button'));
       
       // Verify English content is displayed
       await waitFor(() => {
@@ -199,7 +206,7 @@ describe('Bilingual Resume Page Integration Tests', () => {
       expect(screen.getByTestId('resume-page')).toHaveAttribute('lang', 'en');
       
       // Toggle to Korean
-      fireEvent.click(screen.getByTestId('language-toggle'));
+      fireEvent.click(screen.getByTestId('language-toggle-button'));
       
       // Lang should update to 'ko'
       await waitFor(() => {
@@ -210,7 +217,7 @@ describe('Bilingual Resume Page Integration Tests', () => {
     it('should highlight current language in toggle', () => {
       render(<MockResumePage resumeData={mockResumeData} />);
       
-      const toggleButton = screen.getByTestId('language-toggle');
+      const toggleButton = screen.getByTestId('language-toggle-button');
       
       // English should be highlighted initially
       expect(toggleButton.querySelector('span')).toHaveClass('text-blue-600');
@@ -230,7 +237,7 @@ describe('Bilingual Resume Page Integration Tests', () => {
       render(<MockResumePage resumeData={mockResumeData} />);
       
       // Switch to Korean
-      fireEvent.click(screen.getByTestId('language-toggle'));
+      fireEvent.click(screen.getByTestId('language-toggle-button'));
       
       await waitFor(() => {
         const htmlContent = screen.getByTestId('resume-html-content');
@@ -260,7 +267,7 @@ describe('Bilingual Resume Page Integration Tests', () => {
       render(<MockResumePage resumeData={mockResumeData} />);
       
       // Toggle to Korean
-      fireEvent.click(screen.getByTestId('language-toggle'));
+      fireEvent.click(screen.getByTestId('language-toggle-button'));
       
       await waitFor(() => {
         const pdfLink = screen.getByTestId('pdf-download');
@@ -286,9 +293,11 @@ describe('Bilingual Resume Page Integration Tests', () => {
 
     it('should maintain proper heading hierarchy', () => {
       render(<MockResumePage resumeData={mockResumeData} />);
-      
+
       expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('John Doe');
-      expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Software Engineer');
+      const h2Elements = screen.getAllByRole('heading', { level: 2 });
+      expect(h2Elements.length).toBeGreaterThanOrEqual(1);
+      expect(h2Elements[0]).toHaveTextContent('Software Engineer');
     });
 
     it('should be keyboard accessible', () => {
@@ -323,7 +332,7 @@ describe('Bilingual Resume Page Integration Tests', () => {
       render(<MockResumePage resumeData={mockResumeData} />);
       
       const startTime = performance.now();
-      fireEvent.click(screen.getByTestId('language-toggle'));
+      fireEvent.click(screen.getByTestId('language-toggle-button'));
       
       await waitFor(() => {
         expect(screen.getByTestId('resume-name')).toHaveTextContent('홍길동');
