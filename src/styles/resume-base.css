@@ -1,0 +1,205 @@
+/* Resume Base Layout - Core structure for all resume themes */
+
+.resume-container {
+  @apply max-w-4xl mx-auto px-6 py-8;
+}
+
+/* Header Section */
+.resume-header {
+  @apply text-center mb-8;
+}
+
+.resume-header h1 {
+  @apply text-4xl md:text-5xl font-bold mb-2 tracking-wide;
+}
+
+.resume-contact {
+  @apply flex flex-wrap justify-center items-center gap-2 text-sm md:text-base text-gray-600;
+}
+
+.resume-contact-item {
+  @apply flex items-center gap-1;
+}
+
+.resume-contact-separator::after {
+  content: " | ";
+  @apply text-gray-400;
+}
+
+/* Definition Lists - Core Structure */
+.resume dl {
+  @apply flex flex-wrap items-start gap-2 mb-4;
+}
+
+.resume dl dt {
+  @apply flex-1 font-semibold min-w-0;
+}
+
+.resume dl dd {
+  @apply flex-auto text-gray-700;
+  flex: 2;
+}
+
+.resume dl dd:not(:last-child) {
+  @apply flex-1;
+}
+
+/* Section Styling */
+.resume-section {
+  @apply mb-8;
+}
+
+.resume-section h2 {
+  @apply text-2xl font-bold mb-4 border-b border-gray-300 pb-2;
+}
+
+.resume-section h3 {
+  @apply text-lg font-semibold mb-2;
+}
+
+/* Experience/Job Entries */
+.resume-job {
+  @apply mb-6 last:mb-0;
+}
+
+.resume-job-title {
+  @apply font-semibold text-lg;
+}
+
+.resume-job-company {
+  @apply font-medium text-gray-700;
+}
+
+.resume-job-date {
+  @apply text-sm text-gray-500 italic;
+}
+
+.resume-job-description {
+  @apply mt-2 space-y-1;
+}
+
+.resume-job-description ul {
+  @apply list-disc list-inside space-y-1 text-gray-700;
+}
+
+/* Skills Section */
+.resume-skills {
+  @apply space-y-3;
+}
+
+.resume-skills-category {
+  @apply flex flex-wrap gap-2 items-start;
+}
+
+.resume-skills-label {
+  @apply font-semibold text-gray-800 min-w-[120px] flex-shrink-0;
+}
+
+.resume-skills-list {
+  @apply flex-1 text-gray-700;
+}
+
+/* Education Section */
+.resume-education {
+  @apply space-y-4;
+}
+
+.resume-degree {
+  @apply font-semibold;
+}
+
+.resume-school {
+  @apply text-gray-700;
+}
+
+.resume-edu-details {
+  @apply text-sm text-gray-500 mt-1;
+}
+
+/* Awards and Publications */
+.resume-awards,
+.resume-publications {
+  @apply space-y-3;
+}
+
+.resume-award-title,
+.resume-publication-title {
+  @apply font-semibold;
+}
+
+.resume-award-org,
+.resume-publication-venue {
+  @apply text-gray-700;
+}
+
+.resume-award-date,
+.resume-publication-date {
+  @apply text-sm text-gray-500;
+}
+
+.resume-publication-authors {
+  @apply text-gray-600 mt-1;
+}
+
+/* Iconify Icons */
+.resume .iconify {
+  @apply inline-block w-4 h-4 align-text-bottom;
+  vertical-align: -0.2em;
+}
+
+/* Links */
+.resume a {
+  @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
+}
+
+.resume a:hover {
+  @apply underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resume-container {
+    @apply px-4 py-6;
+  }
+  
+  .resume-header h1 {
+    @apply text-3xl;
+  }
+  
+  .resume-contact {
+    @apply flex-col gap-1;
+  }
+  
+  .resume-contact-separator::after {
+    content: "";
+  }
+  
+  .resume dl {
+    @apply flex-col gap-1;
+  }
+  
+  .resume dl dt,
+  .resume dl dd {
+    @apply flex-none;
+  }
+  
+  .resume-skills-category {
+    @apply flex-col gap-1;
+  }
+  
+  .resume-skills-label {
+    @apply min-w-0;
+  }
+}
+
+/* Accessibility */
+.resume *:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Print Optimization Preview */
+@media screen and (max-width: 1200px) {
+  .print-preview .resume-container {
+    @apply max-w-none p-4 bg-white text-black shadow-lg;
+  }
+}

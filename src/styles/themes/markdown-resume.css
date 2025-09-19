@@ -1,0 +1,263 @@
+/* Markdown-Resume Theme - Replicating the original styling */
+
+.theme-markdown-resume {
+  @apply bg-white text-black text-left;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Typography Override */
+.theme-markdown-resume p,
+.theme-markdown-resume li,
+.theme-markdown-resume dl {
+  @apply m-0;
+}
+
+/* Headings */
+.theme-markdown-resume h1,
+.theme-markdown-resume h2,
+.theme-markdown-resume h3 {
+  @apply font-bold;
+}
+
+.theme-markdown-resume h1 {
+  font-size: 2.5em;
+  letter-spacing: 0.1em;
+  @apply text-center mb-1;
+}
+
+.theme-markdown-resume h2,
+.theme-markdown-resume h3 {
+  @apply mb-1 mt-4;
+  font-size: 1.2em;
+}
+
+.theme-markdown-resume h1,
+.theme-markdown-resume h2 {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: darkgrey;
+}
+
+/* Lists */
+.theme-markdown-resume ul,
+.theme-markdown-resume ol {
+  @apply pl-6 my-1;
+  margin: 0.2em 0 1.0em 0;
+}
+
+.theme-markdown-resume ul {
+  list-style-type: disc;
+}
+
+.theme-markdown-resume ol {
+  list-style-type: decimal;
+}
+
+/* Definition Lists - Key Feature */
+.theme-markdown-resume dl {
+  @apply flex;
+}
+
+.theme-markdown-resume dl dt,
+.theme-markdown-resume dl dd:not(:last-child) {
+  @apply flex-1;
+}
+
+/* TeX/Math Support */
+.theme-markdown-resume :not(span.katex-display) > span.katex {
+  font-size: 1em !important;
+}
+
+/* SVG & Images */
+.theme-markdown-resume svg.iconify {
+  vertical-align: -0.2em;
+}
+
+.theme-markdown-resume img {
+  @apply max-w-full;
+}
+
+/* Header Section Specific */
+.theme-markdown-resume .resume-header {
+  @apply text-center;
+}
+
+.theme-markdown-resume .resume-header h1 {
+  @apply text-center leading-tight mb-2;
+}
+
+.theme-markdown-resume .resume-header-item:not(.no-separator)::after {
+  content: " | ";
+}
+
+/* Citations and Publications */
+.theme-markdown-resume ul.crossref-list {
+  padding-left: 1.2em;
+}
+
+.theme-markdown-resume li.crossref-item p {
+  margin-left: 0.5em;
+}
+
+.theme-markdown-resume li.crossref-item::marker {
+  content: attr(data-caption);
+}
+
+.theme-markdown-resume sup.crossref-ref {
+  font-size: 100%;
+  top: 0;
+}
+
+/* Links */
+.theme-markdown-resume a {
+  @apply text-blue-600 underline;
+}
+
+.theme-markdown-resume a:hover {
+  @apply text-blue-800;
+}
+
+/* Definition List Contact Layout */
+.theme-markdown-resume .contact-group {
+  @apply mb-2;
+}
+
+.theme-markdown-resume .contact-group dl {
+  @apply flex items-center justify-center gap-4 text-center;
+}
+
+.theme-markdown-resume .contact-group dl dt {
+  @apply flex-none font-normal;
+}
+
+.theme-markdown-resume .contact-group dl dd {
+  @apply flex-none font-normal;
+}
+
+/* Experience Entries Using Definition Lists */
+.theme-markdown-resume .experience-entry dl {
+  @apply flex flex-wrap items-baseline gap-2 mb-2;
+}
+
+.theme-markdown-resume .experience-entry dl dt {
+  @apply font-semibold flex-1 min-w-0;
+}
+
+.theme-markdown-resume .experience-entry dl dd {
+  @apply flex-shrink-0;
+}
+
+/* Job Title Styling */
+.theme-markdown-resume strong {
+  @apply font-semibold;
+}
+
+.theme-markdown-resume em {
+  @apply italic text-gray-600;
+}
+
+/* Skills with Icons */
+.theme-markdown-resume .skills-line {
+  @apply mb-2;
+}
+
+.theme-markdown-resume .skills-line strong {
+  @apply font-semibold;
+}
+
+.theme-markdown-resume .iconify {
+  @apply inline-block align-text-bottom;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+/* Awards Section */
+.theme-markdown-resume .award-entry dl {
+  @apply flex items-baseline gap-2 mb-1;
+}
+
+.theme-markdown-resume .award-entry dl dt {
+  @apply font-semibold flex-1;
+}
+
+.theme-markdown-resume .award-entry dl dd {
+  @apply text-gray-600 flex-shrink-0;
+}
+
+/* Publications with Citation Numbers */
+.theme-markdown-resume .publication-entry {
+  @apply mb-3;
+}
+
+.theme-markdown-resume .publication-entry .citation-number {
+  @apply font-semibold text-blue-600;
+}
+
+.theme-markdown-resume .publication-entry .title {
+  @apply font-semibold;
+}
+
+.theme-markdown-resume .publication-entry .authors {
+  @apply text-gray-700 block mt-1;
+}
+
+.theme-markdown-resume .publication-entry .authors u {
+  @apply font-medium;
+}
+
+.theme-markdown-resume .publication-entry .venue {
+  @apply italic text-gray-600 block;
+}
+
+.theme-markdown-resume .publication-entry .award {
+  @apply font-semibold text-orange-600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .theme-markdown-resume h1 {
+    font-size: 2em;
+    letter-spacing: 0.05em;
+  }
+  
+  .theme-markdown-resume .contact-group dl {
+    @apply flex-col gap-1;
+  }
+  
+  .theme-markdown-resume .experience-entry dl {
+    @apply flex-col gap-0;
+  }
+  
+  .theme-markdown-resume .award-entry dl {
+    @apply flex-col gap-0;
+  }
+}
+
+/* Dark Mode Support */
+.dark .theme-markdown-resume {
+  @apply bg-slate-800 text-gray-100;
+}
+
+.dark .theme-markdown-resume h1,
+.dark .theme-markdown-resume h2 {
+  border-bottom-color: #6b7280;
+}
+
+.dark .theme-markdown-resume a {
+  @apply text-blue-400;
+}
+
+.dark .theme-markdown-resume a:hover {
+  @apply text-blue-300;
+}
+
+/* Print Styles - Hide navigation and footer elements */
+@media print {
+  .print-hide {
+    display: none !important;
+  }
+}

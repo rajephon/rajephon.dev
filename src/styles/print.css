@@ -1,0 +1,292 @@
+/* Print Optimization - PDF and Print Media Queries */
+
+@media print {
+  /* Force white background and black text for all themes */
+  .theme-markdown-resume,
+  .resume-container,
+  * {
+    background-color: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Page setup */
+  @page {
+    size: A4;
+    margin: 0.75in;
+  }
+  
+  html, body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  /* Hide interactive elements */
+  .print-hide,
+  button,
+  .pdf-export-button,
+  nav,
+  .navigation {
+    display: none !important;
+  }
+  
+  /* Container adjustments */
+  .resume-container {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  /* Typography for print */
+  .theme-markdown-resume h1 {
+    font-size: 24pt !important;
+    margin-bottom: 8pt !important;
+    page-break-after: avoid;
+  }
+  
+  .theme-markdown-resume h2 {
+    font-size: 14pt !important;
+    margin-top: 16pt !important;
+    margin-bottom: 6pt !important;
+    page-break-after: avoid;
+  }
+  
+  .theme-markdown-resume h3 {
+    font-size: 12pt !important;
+    margin-top: 12pt !important;
+    margin-bottom: 4pt !important;
+    page-break-after: avoid;
+  }
+  
+  .theme-markdown-resume p,
+  .theme-markdown-resume li {
+    font-size: 11pt !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4pt !important;
+  }
+  
+  /* Links for print */
+  .theme-markdown-resume a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Show URLs only for content links, not contact header links */
+  .theme-markdown-resume .resume-content a[href^="http"]:after,
+  .theme-markdown-resume .resume-content a[href^="https"]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666 !important;
+  }
+  
+  /* Hide URLs for contact header links */
+  .theme-markdown-resume .resume-header a[href^="http"]:after,
+  .theme-markdown-resume .resume-header a[href^="https"]:after,
+  .theme-markdown-resume .contact-group a[href^="http"]:after,
+  .theme-markdown-resume .contact-group a[href^="https"]:after,
+  .theme-markdown-resume a[href^="mailto"]:after,
+  .theme-markdown-resume a[href^="tel"]:after {
+    content: "";
+  }
+  
+  /* Definition lists for print */
+  .theme-markdown-resume dl {
+    display: flex !important;
+    align-items: baseline;
+    margin-bottom: 4pt !important;
+    page-break-inside: avoid;
+  }
+  
+  .theme-markdown-resume dl dt {
+    flex: 1 !important;
+    font-weight: bold !important;
+    margin-right: 8pt !important;
+  }
+  
+  .theme-markdown-resume dl dd {
+    flex: 2 !important;
+    margin: 0 !important;
+  }
+  
+  .theme-markdown-resume dl dd:not(:last-child) {
+    flex: 1 !important;
+  }
+  
+  /* Lists */
+  .theme-markdown-resume ul,
+  .theme-markdown-resume ol {
+    margin: 4pt 0 8pt 16pt !important;
+    padding: 0 !important;
+  }
+  
+  .theme-markdown-resume li {
+    margin-bottom: 2pt !important;
+  }
+  
+  /* Borders */
+  .theme-markdown-resume h1,
+  .theme-markdown-resume h2 {
+    border-bottom: 1pt solid black !important;
+    padding-bottom: 2pt !important;
+  }
+  
+  /* Contact section - compact layout for print */
+  .theme-markdown-resume .resume-header {
+    margin-bottom: 16pt !important;
+    text-align: center !important;
+  }
+  
+  .theme-markdown-resume .contact-group {
+    display: inline-block !important;
+    margin-right: 24pt !important;
+    vertical-align: top !important;
+  }
+  
+  .theme-markdown-resume .contact-group:last-child {
+    margin-right: 0 !important;
+  }
+  
+  .theme-markdown-resume .contact-group dl {
+    display: block !important;
+    margin-bottom: 6pt !important;
+    text-align: center !important;
+  }
+  
+  .theme-markdown-resume .contact-group dl dt,
+  .theme-markdown-resume .contact-group dl dd {
+    display: inline !important;
+    flex: none !important;
+    margin: 0 8pt 0 0 !important;
+  }
+  
+  .theme-markdown-resume .contact-group dl dt {
+    font-weight: normal !important;
+  }
+  
+  /* Page breaks */
+  .resume-section {
+    page-break-inside: avoid;
+    margin-bottom: 16pt !important;
+  }
+  
+  .experience-entry,
+  .education-entry,
+  .award-entry,
+  .publication-entry {
+    page-break-inside: avoid;
+    margin-bottom: 8pt !important;
+  }
+  
+  /* Avoid orphaned headers */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  /* Icons for print */
+  .theme-markdown-resume .iconify {
+    width: 12pt !important;
+    height: 12pt !important;
+    vertical-align: -2pt !important;
+    display: inline-block !important;
+  }
+  
+  /* Skills section optimization */
+  .theme-markdown-resume .skills-line {
+    margin-bottom: 4pt !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Publications formatting */
+  .theme-markdown-resume .publication-entry {
+    margin-bottom: 8pt !important;
+    padding-left: 16pt !important;
+    text-indent: -16pt !important;
+  }
+  
+  .theme-markdown-resume .publication-entry .citation-number {
+    font-weight: bold !important;
+    color: black !important;
+  }
+  
+  .theme-markdown-resume .publication-entry .title {
+    font-weight: bold !important;
+    color: black !important;
+  }
+  
+  .theme-markdown-resume .publication-entry .authors {
+    color: black !important;
+    font-style: normal !important;
+  }
+  
+  .theme-markdown-resume .publication-entry .venue {
+    font-style: italic !important;
+    color: black !important;
+  }
+  
+  .theme-markdown-resume .publication-entry .award {
+    font-weight: bold !important;
+    color: black !important;
+  }
+}
+
+/* Screen print preview mode */
+@media screen {
+  .print-preview {
+    background: #f5f5f5 !important;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .print-preview .resume-container {
+    background: white !important;
+    color: black !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    padding: 0.75in;
+    font-size: 12pt;
+  }
+  
+  .print-preview .theme-markdown-resume h1 {
+    font-size: 24pt;
+  }
+  
+  .print-preview .theme-markdown-resume h2 {
+    font-size: 14pt;
+  }
+  
+  .print-preview .theme-markdown-resume p,
+  .print-preview .theme-markdown-resume li {
+    font-size: 11pt;
+    line-height: 1.3;
+  }
+  
+  .print-preview .pdf-export-button {
+    display: block !important;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+}
+
+/* High contrast mode for better print readability */
+@media print and (prefers-contrast: high) {
+  .theme-markdown-resume * {
+    color: black !important;
+    background: white !important;
+  }
+  
+  .theme-markdown-resume h1,
+  .theme-markdown-resume h2 {
+    border-bottom-width: 2pt !important;
+  }
+  
+  .theme-markdown-resume a {
+    color: black !important;
+    font-weight: bold !important;
+  }
+}
