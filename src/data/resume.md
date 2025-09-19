@@ -28,7 +28,7 @@ As a Backend Developer at Global AI Platform Corp, I work on building the backen
 **Server Software Engineer → Lead Server Software Engineer**  
 **Devsisters (Studio Kingdom)** : **Dec 2018 - Jan 2024**
 
-Worked on "Brixity," a global 3D sandbox city-building game that reached #1 on both Apple App Store and Google Play Store charts within a day of launch, surpassing 1 million downloads shortly after. Promoted to Lead role in recognition of technical leadership and project impact.
+Worked on "Brixity," a global 3D sandbox city-building game that reached #1 on both Apple App Store and Google Play Store charts within a day of launch, surpassing 1 million downloads shortly after.
 
 - Spearheaded the development of a robust and scalable backend capable of handling over 12 million requests per hour, designed for a large and global player base
 - Owned the entire lifecycle of the game server—from initial development and launch to live operations and incident response

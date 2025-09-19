@@ -28,7 +28,7 @@ Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC25에서 발
 **Server Software Engineer → Lead Server Software Engineer**  
 **Devsisters (Studio Kingdom)** : **2018년 12월 - 2024년 1월**
 
-출시 하루 만에 Apple App Store와 Google Play Store 차트에서 1위를 기록하고 출시 후 곧바로 100만 다운로드를 돌파한 글로벌 3D 샌드박스 도시 건설 게임 "브릭시티"를 개발했습니다. 기술적 리더십과 프로젝트 임팩트를 인정받아 리드 역할로 승진했습니다.
+출시 하루 만에 Apple App Store와 Google Play Store 차트에서 1위를 기록하고 출시 후 곧바로 100만 다운로드를 돌파한 글로벌 3D 샌드박스 도시 건설 게임 "브릭시티"를 개발했습니다.
 
 - 대규모 글로벌 플레이어를 위해 설계된 시간당 1,200만 건 이상의 요청을 처리할 수 있는 강력하고 확장 가능한 백엔드 구축 주도
 - 초기 개발과 출시부터 라이브 운영과 인시던트 대응까지 게임 서버의 전체 라이프사이클 담당
