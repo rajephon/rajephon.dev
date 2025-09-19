@@ -1,4 +1,4 @@
-name: Build and Deploy to GitHub Pages
+name: Build and Test
 
 on:
   push:
@@ -61,39 +61,3 @@ jobs:
         name: resume-pdf
         path: public/resume.pdf
 
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Download build artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: build-files
-        path: out/
-
-    - name: Download PDF artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: resume-pdf
-        path: out/
-
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-
-    - name: Upload to GitHub Pages
-      uses: actions/upload-pages-artifact@v2
-      with:
-        path: out/
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
