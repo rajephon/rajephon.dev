@@ -23,14 +23,14 @@ const HomePage: React.FC<HomePageProps> = ({ siteConfig: config }) => {
         </h1>
         
         <p className="text-lg mb-8">
-          Software engineer specializing in full-stack development, 
-          modern web technologies, and scalable applications.
+          Backend engineer with 8 years of experience designing scalable distributed systems,
+          from game servers supporting millions of players to AI platforms integrating real-time LLM streaming.
         </p>
 
         <p className="mb-8">
-          I build performant, accessible web applications with a focus on user experience 
-          and clean, maintainable code. My expertise includes JavaScript/TypeScript, React, 
-          Next.js, Node.js, and cloud platforms.
+          Currently working on building the backend systems for "Aster," a global personal AI agent.
+          Previously led server development for "Brixity," which reached #1 on app store charts
+          and handled over 12 million requests per hour.
         </p>
 
         {/* Simple text links */}

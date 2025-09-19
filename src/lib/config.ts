@@ -41,33 +41,33 @@ export interface OpenGraphConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  title: 'Rajephon - Software Engineer',
-  description: 'Personal website and resume of a passionate software engineer specializing in full-stack development.',
+  title: 'Chanwoo Noh',
+  description: 'Backend engineer with 8 years of experience in scalable distributed systems, from game servers to AI platforms.',
   domain: 'rajephon.dev',
-  author: 'Rajephon',
-  
+  author: 'Chanwoo Noh',
+
   socialLinks: {
     github: 'https://github.com/rajephon',
-    linkedin: 'https://linkedin.com/in/rajephon',
-    email: 'contact@rajephon.dev',
+    linkedin: 'https://www.linkedin.com/in/chanwoo-noh',
+    email: 'rajephon@gmail.com',
   },
-  
+
   seo: {
-    defaultTitle: 'Rajephon - Software Engineer',
-    titleTemplate: '%s | Rajephon',
-    description: 'Personal website and resume of a passionate software engineer specializing in full-stack development, web technologies, and modern frameworks.',
-    
+    defaultTitle: 'Chanwoo Noh',
+    titleTemplate: '%s | Chanwoo Noh',
+    description: 'Backend engineer specializing in Go microservices, distributed systems, and AI platform development. 8 years building scalable infrastructure from game servers to LLM integration.',
+
     openGraph: {
       type: 'website',
       locale: 'en_US',
       url: 'https://rajephon.dev',
-      siteName: 'Rajephon',
+      siteName: 'Chanwoo Noh',
       images: [
         {
           url: 'https://rajephon.dev/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: 'Rajephon - Software Engineer',
+          alt: 'Chanwoo Noh - Backend Engineer',
         },
       ],
     },
@@ -99,7 +99,7 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/rajephon',
+    href: 'https://www.linkedin.com/in/chanwoo-noh',
     external: true,
   },
 ];
