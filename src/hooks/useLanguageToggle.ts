@@ -1,13 +1,13 @@
 /**
  * Language Toggle Hook
- * 
+ *
  * Manages language state and persistence for the bilingual resume feature
  * Implements the contract defined in specs/002-src-data-resume/contracts/language-toggle.ts
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
-export type Language = 'en' | 'ko';
+export type Language = "en" | "ko";
 
 export interface UseLanguageToggleReturn {
   currentLanguage: Language;
@@ -17,14 +17,16 @@ export interface UseLanguageToggleReturn {
   setLanguage: (language: Language) => void;
 }
 
-const STORAGE_KEY = 'resume-language-preference';
-const DEFAULT_LANGUAGE: Language = 'en';
-const AVAILABLE_LANGUAGES: Language[] = ['en', 'ko'];
+const STORAGE_KEY = "resume-language-preference";
+const DEFAULT_LANGUAGE: Language = "en";
+const AVAILABLE_LANGUAGES: Language[] = ["en", "ko"];
 
 /**
  * Custom hook for managing language toggle functionality
  */
-export function useLanguageToggle(initialLanguage?: Language): UseLanguageToggleReturn {
+export function useLanguageToggle(
+  initialLanguage?: Language
+): UseLanguageToggleReturn {
   const [currentLanguage, setCurrentLanguage] = useState<Language>(
     initialLanguage || DEFAULT_LANGUAGE
   );
@@ -32,17 +34,17 @@ export function useLanguageToggle(initialLanguage?: Language): UseLanguageToggle
 
   // Load persisted language preference on mount
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const persistedLanguage = getPersistedPreference();
       if (persistedLanguage && persistedLanguage !== currentLanguage) {
         setCurrentLanguage(persistedLanguage);
       }
     }
-  }, []);
+  }, [currentLanguage]);
 
   // Update document lang attribute when language changes
   useEffect(() => {
-    if (typeof document !== 'undefined') {
+    if (typeof document !== "undefined") {
       document.documentElement.lang = currentLanguage;
     }
   }, [currentLanguage]);
@@ -57,7 +59,10 @@ export function useLanguageToggle(initialLanguage?: Language): UseLanguageToggle
         return stored as Language;
       }
     } catch (error) {
-      console.warn('Failed to read language preference from localStorage:', error);
+      console.warn(
+        "Failed to read language preference from localStorage:",
+        error
+      );
     }
     return null;
   };
@@ -70,7 +75,10 @@ export function useLanguageToggle(initialLanguage?: Language): UseLanguageToggle
       localStorage.setItem(STORAGE_KEY, language);
       return true;
     } catch (error) {
-      console.warn('Failed to save language preference to localStorage:', error);
+      console.warn(
+        "Failed to save language preference to localStorage:",
+        error
+      );
       return false;
     }
   }, []);
@@ -78,21 +86,24 @@ export function useLanguageToggle(initialLanguage?: Language): UseLanguageToggle
   /**
    * Set language to a specific value
    */
-  const setLanguage = useCallback((language: Language) => {
-    if (!AVAILABLE_LANGUAGES.includes(language)) {
-      console.warn(`Invalid language: ${language}. Falling back to default.`);
-      language = DEFAULT_LANGUAGE;
-    }
+  const setLanguage = useCallback(
+    (language: Language) => {
+      if (!AVAILABLE_LANGUAGES.includes(language)) {
+        console.warn(`Invalid language: ${language}. Falling back to default.`);
+        language = DEFAULT_LANGUAGE;
+      }
 
-    setIsLoading(true);
-    
-    // Use setTimeout to simulate async operation and show loading state
-    setTimeout(() => {
-      setCurrentLanguage(language);
-      persistPreference(language);
-      setIsLoading(false);
-    }, 0);
-  }, [persistPreference]);
+      setIsLoading(true);
+
+      // Use setTimeout to simulate async operation and show loading state
+      setTimeout(() => {
+        setCurrentLanguage(language);
+        persistPreference(language);
+        setIsLoading(false);
+      }, 0);
+    },
+    [persistPreference]
+  );
 
   /**
    * Toggle between available languages
@@ -101,7 +112,7 @@ export function useLanguageToggle(initialLanguage?: Language): UseLanguageToggle
     const currentIndex = AVAILABLE_LANGUAGES.indexOf(currentLanguage);
     const nextIndex = (currentIndex + 1) % AVAILABLE_LANGUAGES.length;
     const nextLanguage = AVAILABLE_LANGUAGES[nextIndex];
-    
+
     setLanguage(nextLanguage);
   }, [currentLanguage, setLanguage]);
 
@@ -117,23 +128,26 @@ export function useLanguageToggle(initialLanguage?: Language): UseLanguageToggle
 /**
  * Language labels for UI display
  */
-export const LANGUAGE_LABELS: Record<Language, { short: string; full: string }> = {
+export const LANGUAGE_LABELS: Record<
+  Language,
+  { short: string; full: string }
+> = {
   en: {
-    short: 'EN',
-    full: 'English'
+    short: "EN",
+    full: "English",
   },
   ko: {
-    short: 'KO',
-    full: '한국어'
-  }
+    short: "KO",
+    full: "한국어",
+  },
 };
 
 /**
  * PDF file paths for each language
  */
 export const PDF_PATHS: Record<Language, string> = {
-  en: '/resume.pdf',
-  ko: '/resume-ko.pdf'
+  en: "/resume.pdf",
+  ko: "/resume-ko.pdf",
 };
 
 /**
@@ -146,6 +160,9 @@ export function getPdfUrl(language: Language): string {
 /**
  * Utility function to get language label
  */
-export function getLanguageLabel(language: Language, type: 'short' | 'full' = 'short'): string {
+export function getLanguageLabel(
+  language: Language,
+  type: "short" | "full" = "short"
+): string {
   return LANGUAGE_LABELS[language]?.[type] || LANGUAGE_LABELS.en[type];
 }

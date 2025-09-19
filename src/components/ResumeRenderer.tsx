@@ -1,13 +1,13 @@
 /**
  * ResumeRenderer Component
- * 
+ *
  * Renders markdown resume content with markdown-resume theme styling,
  * iconify icon support, and print optimization
  */
 
-import React from 'react';
-import { ResumeRendererProps } from '@/lib/component-interfaces';
-import { Language } from '../hooks/useLanguageToggle';
+import React from "react";
+import { ResumeRendererProps } from "@/lib/component-interfaces";
+import { Language } from "../hooks/useLanguageToggle";
 
 interface ExtendedResumeRendererProps extends ResumeRendererProps {
   language?: Language;
@@ -16,50 +16,63 @@ interface ExtendedResumeRendererProps extends ResumeRendererProps {
 const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
   frontmatter,
   htmlContent,
-  className = '',
+  className = "",
   printOptimized = false,
-  theme = 'markdown-resume',
+  theme = "markdown-resume",
   pdfUrl,
-  language = 'en'
+  language = "en",
 }) => {
   const containerClasses = [
-    'resume',
-    'resume-container',
+    "resume",
+    "resume-container",
     `theme-${theme}`,
     `lang-${language}`,
-    language === 'ko' && 'font-korean',
-    printOptimized && 'print-optimized',
-    className
-  ].filter(Boolean).join(' ');
+    language === "ko" && "font-korean",
+    printOptimized && "print-optimized",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   const formatPhoneForTel = (phone?: string) => {
-    if (!phone) return '';
+    if (!phone) return "";
     // Remove all non-digits and prepend country code if missing
-    const digits = phone.replace(/\D/g, '');
-    return digits.startsWith('1') ? `+${digits}` : `+1${digits}`;
+    const digits = phone.replace(/\D/g, "");
+    return digits.startsWith("1") ? `+${digits}` : `+1${digits}`;
   };
 
   const renderContactInfo = () => (
     <div className="resume-header" data-testid="contact-section">
       <h1>{frontmatter.name}</h1>
-      
+
       {/* Contact Information with Iconify Icons */}
       <div className="contact-group">
         <dl>
           <dt>
             <span className="iconify" data-icon="charm:person"></span>
             {frontmatter.website && (
-              <a href={frontmatter.website} target="_blank" rel="noopener noreferrer">
-                {frontmatter.website.replace(/https?:\/\//, '')}
+              <a
+                href={frontmatter.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {frontmatter.website.replace(/https?:\/\//, "")}
               </a>
             )}
           </dt>
           <dd>
             {frontmatter.github && (
               <>
-                <span className="iconify" data-icon="tabler:brand-github"></span>
-                <a href={frontmatter.github} target="_blank" rel="noopener noreferrer">
-                  {frontmatter.github.replace(/https?:\/\/(www\.)?/, '')}
+                <span
+                  className="iconify"
+                  data-icon="tabler:brand-github"
+                ></span>
+                <a
+                  href={frontmatter.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {frontmatter.github.replace(/https?:\/\/(www\.)?/, "")}
                 </a>
               </>
             )}
@@ -82,7 +95,10 @@ const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
           <dt>
             {frontmatter.location && (
               <>
-                <span className="iconify" data-icon="ic:outline-location-on"></span>
+                <span
+                  className="iconify"
+                  data-icon="ic:outline-location-on"
+                ></span>
                 {frontmatter.location}
               </>
             )}
@@ -90,9 +106,16 @@ const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
           <dd>
             {frontmatter.linkedin && (
               <>
-                <span className="iconify" data-icon="tabler:brand-linkedin"></span>
-                <a href={frontmatter.linkedin} target="_blank" rel="noopener noreferrer">
-                  {frontmatter.linkedin.replace(/https?:\/\/(www\.)?/, '')}
+                <span
+                  className="iconify"
+                  data-icon="tabler:brand-linkedin"
+                ></span>
+                <a
+                  href={frontmatter.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {frontmatter.linkedin.replace(/https?:\/\/(www\.)?/, "")}
                 </a>
               </>
             )}
@@ -101,9 +124,7 @@ const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
             {frontmatter.email && (
               <>
                 <span className="iconify" data-icon="tabler:mail"></span>
-                <a href={`mailto:${frontmatter.email}`}>
-                  {frontmatter.email}
-                </a>
+                <a href={`mailto:${frontmatter.email}`}>{frontmatter.email}</a>
               </>
             )}
           </dd>
@@ -128,10 +149,7 @@ const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
   };
 
   return (
-    <div 
-      className={containerClasses}
-      data-testid="resume-container"
-    >
+    <div className={containerClasses} data-testid="resume-container">
       {/* Contact Header */}
       {renderContactInfo()}
 
@@ -155,36 +173,36 @@ const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
       )}
 
       {/* Resume Content */}
-      <div 
+      <div
         className="resume-content"
-        dangerouslySetInnerHTML={{ 
-          __html: processHtmlContent(htmlContent) 
-        }} 
+        dangerouslySetInnerHTML={{
+          __html: processHtmlContent(htmlContent),
+        }}
       />
 
       {/* Last Updated and PDF Link */}
       {frontmatter.lastUpdated && !printOptimized && (
         <div className="text-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 print-hide">
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            {language === 'ko' ? '최종 업데이트: ' : 'Last updated: '}
+            {language === "ko" ? "최종 업데이트: " : "Last updated: "}
             {new Date(frontmatter.lastUpdated).toLocaleDateString(
-              language === 'ko' ? 'ko-KR' : 'en-US', 
+              language === "ko" ? "ko-KR" : "en-US",
               {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
+                year: "numeric",
+                month: "long",
+                day: "numeric",
               }
             )}
           </p>
           {pdfUrl && (
             <p className="text-sm mt-2">
-              <a 
+              <a
                 href={pdfUrl}
-                download={`${frontmatter.name?.toLowerCase().replace(/\s+/g, '-') || 'resume'}-resume.pdf`}
+                download={`${frontmatter.name?.toLowerCase().replace(/\s+/g, "-") || "resume"}-resume.pdf`}
                 className="text-blue-600 hover:underline"
                 data-testid="pdf-download"
               >
-                {language === 'ko' ? 'PDF 버전' : 'PDF version'}
+                {language === "ko" ? "PDF 버전" : "PDF version"}
               </a>
             </p>
           )}

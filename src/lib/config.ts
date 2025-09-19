@@ -1,6 +1,6 @@
 /**
  * Site Configuration
- * 
+ *
  * Central configuration for the rajephon.dev personal website
  */
 
@@ -41,33 +41,35 @@ export interface OpenGraphConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  title: 'Chanwoo Noh',
-  description: 'Backend engineer with 8 years of experience in scalable distributed systems, from game servers to AI platforms.',
-  domain: 'rajephon.dev',
-  author: 'Chanwoo Noh',
+  title: "Chanwoo Noh",
+  description:
+    "Backend engineer with 8 years of experience in scalable distributed systems, from game servers to AI platforms.",
+  domain: "rajephon.dev",
+  author: "Chanwoo Noh",
 
   socialLinks: {
-    github: 'https://github.com/rajephon',
-    linkedin: 'https://www.linkedin.com/in/chanwoo-noh',
-    email: 'rajephon@gmail.com',
+    github: "https://github.com/rajephon",
+    linkedin: "https://www.linkedin.com/in/chanwoo-noh",
+    email: "rajephon@gmail.com",
   },
 
   seo: {
-    defaultTitle: 'Chanwoo Noh',
-    titleTemplate: '%s | Chanwoo Noh',
-    description: 'Backend engineer specializing in Go microservices, distributed systems, and AI platform development. 8 years building scalable infrastructure from game servers to LLM integration.',
+    defaultTitle: "Chanwoo Noh",
+    titleTemplate: "%s | Chanwoo Noh",
+    description:
+      "Backend engineer specializing in Go microservices, distributed systems, and AI platform development. 8 years building scalable infrastructure from game servers to LLM integration.",
 
     openGraph: {
-      type: 'website',
-      locale: 'en_US',
-      url: 'https://rajephon.dev',
-      siteName: 'Chanwoo Noh',
+      type: "website",
+      locale: "en_US",
+      url: "https://rajephon.dev",
+      siteName: "Chanwoo Noh",
       images: [
         {
-          url: 'https://rajephon.dev/og-image.jpg',
+          url: "https://rajephon.dev/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: 'Chanwoo Noh - Backend Engineer',
+          alt: "Chanwoo Noh - Backend Engineer",
         },
       ],
     },
@@ -85,21 +87,21 @@ export interface NavigationItem {
 
 export const navigationItems: NavigationItem[] = [
   {
-    label: 'Home',
-    href: '/',
+    label: "Home",
+    href: "/",
   },
   {
-    label: 'Resume',
-    href: '/resume',
+    label: "Resume",
+    href: "/resume",
   },
   {
-    label: 'GitHub',
-    href: 'https://github.com/rajephon',
+    label: "GitHub",
+    href: "https://github.com/rajephon",
     external: true,
   },
   {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/chanwoo-noh',
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/chanwoo-noh",
     external: true,
   },
 ];
@@ -107,31 +109,36 @@ export const navigationItems: NavigationItem[] = [
 /**
  * Theme configuration
  */
-export type ResumeTheme = 'modern' | 'classic' | 'minimal' | 'markdown-resume';
+export type ResumeTheme = "modern" | "classic" | "minimal" | "markdown-resume";
 
 export const themeConfig = {
-  defaultTheme: 'markdown-resume' as ResumeTheme,
-  availableThemes: ['modern', 'classic', 'minimal', 'markdown-resume'] as ResumeTheme[],
+  defaultTheme: "markdown-resume" as ResumeTheme,
+  availableThemes: [
+    "modern",
+    "classic",
+    "minimal",
+    "markdown-resume",
+  ] as ResumeTheme[],
 };
 
 /**
  * PDF configuration
  */
 export const pdfConfig = {
-  outputPath: '/resume.pdf',
-  fileName: 'rajephon-resume.pdf',
-  pageFormat: 'A4' as const,
+  outputPath: "/resume.pdf",
+  fileName: "rajephon-resume.pdf",
+  pageFormat: "A4" as const,
   margins: {
-    top: '0.75in',
-    right: '0.75in',
-    bottom: '0.75in',
-    left: '0.75in',
+    top: "0.75in",
+    right: "0.75in",
+    bottom: "0.75in",
+    left: "0.75in",
   },
   printBackground: true,
-  waitForSelector: '.resume-container',
+  waitForSelector: ".resume-container",
   puppeteerOptions: {
     timeout: 30000,
-    waitUntil: 'networkidle0' as const,
+    waitUntil: "networkidle0" as const,
   },
 };
 
@@ -140,17 +147,17 @@ export const pdfConfig = {
  */
 export const devConfig = {
   port: 3000,
-  host: 'localhost',
+  host: "localhost",
   enableHotReload: true,
-  showDebugInfo: process.env.NODE_ENV === 'development',
+  showDebugInfo: process.env.NODE_ENV === "development",
 };
 
 /**
  * Build configuration
  */
 export const buildConfig = {
-  outputDir: 'out',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  outputDir: "out",
+  assetPrefix: process.env.NODE_ENV === "production" ? "" : "",
   generateSitemap: true,
   generateRobots: true,
   optimizeImages: true,
@@ -163,12 +170,12 @@ export function getPageTitle(pageTitle?: string): string {
   if (!pageTitle) {
     return siteConfig.seo.defaultTitle;
   }
-  return siteConfig.seo.titleTemplate.replace('%s', pageTitle);
+  return siteConfig.seo.titleTemplate.replace("%s", pageTitle);
 }
 
 export function getPageUrl(path: string): string {
   const baseUrl = `https://${siteConfig.domain}`;
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${baseUrl}${cleanPath}`;
 }
 

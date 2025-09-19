@@ -1,26 +1,17 @@
 {
   "extends": [
-    "eslint:recommended",
-    "@typescript-eslint/recommended",
     "next/core-web-vitals",
     "prettier"
   ],
   "ignorePatterns": ["specs/**/*", ".next/**/*", "out/**/*", "node_modules/**/*"],
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error",
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "warn",
+    "prettier/prettier": ["error", {
+      "singleQuote": false
+    }],
+    "quotes": ["error", "double", { "avoidEscape": true }],
     "prefer-const": "error",
     "no-var": "error"
-  },
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
   },
   "env": {
     "browser": true,

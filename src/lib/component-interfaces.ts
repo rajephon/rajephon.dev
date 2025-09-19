@@ -1,13 +1,13 @@
 /**
  * Component Interface Contracts
- * 
+ *
  * Defines the props interfaces for all React components
  * Ensures type safety and consistent API across the application
  */
 
-import { ReactNode } from 'react';
-import { ResumeData, ResumeFrontmatter } from './resume-schema';
-import { SiteConfig, NavigationItem } from './config';
+import { ReactNode } from "react";
+import { ResumeData, ResumeFrontmatter } from "./resume-schema";
+import { SiteConfig, NavigationItem } from "./config";
 
 /**
  * Layout Component Props - Simplified for minimal design
@@ -15,16 +15,16 @@ import { SiteConfig, NavigationItem } from './config';
 export interface LayoutProps {
   /** Page content to be wrapped */
   children: ReactNode;
-  
+
   /** Page title for SEO */
   title?: string;
-  
+
   /** Page description for SEO */
   description?: string;
-  
+
   /** Additional CSS classes */
   className?: string;
-  
+
   /** Whether to show navigation (default: false for simplified design) */
   showNavigation?: boolean;
 }
@@ -35,7 +35,7 @@ export interface LayoutProps {
 export interface HomePageProps {
   /** Site configuration */
   siteConfig: SiteConfig;
-  
+
   /** Featured content (optional) */
   featuredContent?: {
     title: string;
@@ -50,10 +50,10 @@ export interface HomePageProps {
 export interface ResumePageProps {
   /** Complete resume data */
   resumeData: ResumeData;
-  
+
   /** Whether to show PDF download button */
   showPDFButton?: boolean;
-  
+
   /** PDF file URL */
   pdfUrl?: string;
 }
@@ -64,19 +64,19 @@ export interface ResumePageProps {
 export interface ResumeRendererProps {
   /** Resume frontmatter metadata */
   frontmatter: ResumeFrontmatter;
-  
+
   /** Processed HTML content */
   htmlContent: string;
-  
+
   /** Additional CSS classes */
   className?: string;
-  
+
   /** Print optimization mode */
   printOptimized?: boolean;
-  
+
   /** Render style theme */
-  theme?: 'modern' | 'classic' | 'minimal' | 'markdown-resume';
-  
+  theme?: "modern" | "classic" | "minimal" | "markdown-resume";
+
   /** PDF download URL (optional) */
   pdfUrl?: string;
 }
@@ -87,16 +87,16 @@ export interface ResumeRendererProps {
 export interface PDFExportButtonProps {
   /** URL to the PDF file */
   pdfUrl: string;
-  
+
   /** Suggested filename for download */
   fileName?: string;
-  
+
   /** Button variant */
-  variant?: 'primary' | 'secondary' | 'outline';
-  
+  variant?: "primary" | "secondary" | "outline";
+
   /** Button size */
-  size?: 'sm' | 'md' | 'lg';
-  
+  size?: "sm" | "md" | "lg";
+
   /** Additional CSS classes */
   className?: string;
 }
@@ -107,16 +107,16 @@ export interface PDFExportButtonProps {
 export interface PDFLinkProps {
   /** URL to the PDF file */
   pdfUrl: string;
-  
+
   /** Suggested filename for download */
   fileName?: string;
-  
+
   /** Additional CSS classes for minimal styling */
   className?: string;
-  
+
   /** Whether to display inline with content flow */
   inline?: boolean;
-  
+
   /** Link text content */
   children?: ReactNode;
 }
@@ -127,13 +127,13 @@ export interface PDFLinkProps {
 export interface NavigationProps {
   /** Current active page */
   currentPath: string;
-  
+
   /** Navigation items */
   items: NavigationItem[];
-  
+
   /** Mobile menu state */
   isMobileMenuOpen?: boolean;
-  
+
   /** Mobile menu toggle handler */
   onMobileMenuToggle?: () => void;
 }
@@ -153,10 +153,10 @@ export interface ErrorBoundaryProps {
 export interface MarkdownRendererProps {
   /** Raw markdown content */
   content: string;
-  
+
   /** Additional CSS classes */
   className?: string;
-  
+
   /** Markdown processing options */
   options?: MarkdownOptions;
 }
@@ -164,10 +164,10 @@ export interface MarkdownRendererProps {
 export interface MarkdownOptions {
   /** Enable GitHub Flavored Markdown */
   gfm?: boolean;
-  
+
   /** Enable syntax highlighting */
   syntaxHighlighting?: boolean;
-  
+
   /** Custom heading ID generation */
   headingIds?: boolean;
 }
@@ -193,4 +193,10 @@ export interface GetStaticPropsResult<T> {
 }
 
 // Re-export config types for convenience
-export type { SiteConfig, NavigationItem, SEOConfig, OpenGraphConfig, SocialLinks } from './config';
+export type {
+  SiteConfig,
+  NavigationItem,
+  SEOConfig,
+  OpenGraphConfig,
+  SocialLinks,
+} from "./config";

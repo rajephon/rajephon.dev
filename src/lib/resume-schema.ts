@@ -1,43 +1,43 @@
 /**
  * Resume Schema and Validation
- * 
+ *
  * Defines the structure and validation rules for resume content
  * Used for build-time validation and TypeScript type checking
  */
 
-import { z } from 'zod';
+import { z } from "zod";
 
 export interface ResumeFrontmatter {
   /** Full name of the person */
   name: string;
-  
+
   /** Professional title or position */
   title: string;
-  
+
   /** Email address (required for contact) */
   email: string;
-  
+
   /** Phone number (optional) */
   phone?: string;
-  
+
   /** Personal website URL (optional) */
   website?: string;
-  
+
   /** Location/Address (optional) */
   location?: string;
-  
+
   /** LinkedIn profile URL (optional) */
   linkedin?: string;
-  
+
   /** GitHub profile URL (optional) */
   github?: string;
-  
+
   /** Professional summary (optional) */
   summary?: string;
-  
+
   /** Last updated date in ISO format */
   lastUpdated: string;
-  
+
   /** Additional custom fields */
   [key: string]: unknown;
 }
@@ -45,10 +45,10 @@ export interface ResumeFrontmatter {
 export interface ResumeData {
   /** Parsed frontmatter metadata */
   frontmatter: ResumeFrontmatter;
-  
+
   /** Raw markdown content (without frontmatter) */
   content: string;
-  
+
   /** Processed HTML content */
   htmlContent?: string;
 }
@@ -56,29 +56,33 @@ export interface ResumeData {
 /**
  * Zod Schema for Runtime Validation
  */
-export const ResumeFrontmatterSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  title: z.string().min(1, 'Title is required'),
-  email: z.string().email('Valid email is required'),
-  phone: z.string().optional(),
-  website: z.string().url().optional().or(z.literal('')),
-  location: z.string().optional(),
-  linkedin: z.string().url().optional().or(z.literal('')),
-  github: z.string().url().optional().or(z.literal('')),
-  summary: z.string().optional(),
-  lastUpdated: z.string().datetime('Last updated must be valid ISO date'),
-}).passthrough(); // Allow additional fields
+export const ResumeFrontmatterSchema = z
+  .object({
+    name: z.string().min(1, "Name is required"),
+    title: z.string().min(1, "Title is required"),
+    email: z.string().email("Valid email is required"),
+    phone: z.string().optional(),
+    website: z.string().url().optional().or(z.literal("")),
+    location: z.string().optional(),
+    linkedin: z.string().url().optional().or(z.literal("")),
+    github: z.string().url().optional().or(z.literal("")),
+    summary: z.string().optional(),
+    lastUpdated: z.string().datetime("Last updated must be valid ISO date"),
+  })
+  .passthrough(); // Allow additional fields
 
 export const ResumeDataSchema = z.object({
   frontmatter: ResumeFrontmatterSchema,
-  content: z.string().min(0, 'Resume content cannot be empty'), // Allow empty content
+  content: z.string().min(0, "Resume content cannot be empty"), // Allow empty content
   htmlContent: z.string().optional(),
 });
 
 /**
  * Type Guards
  */
-export function isValidResumeFrontmatter(data: unknown): data is ResumeFrontmatter {
+export function isValidResumeFrontmatter(
+  data: unknown
+): data is ResumeFrontmatter {
   return ResumeFrontmatterSchema.safeParse(data).success;
 }
 
@@ -112,10 +116,15 @@ export interface MarkdownResumeStructure {
   optionalSections: string[];
 }
 
-export function validateMarkdownResumeStructure(htmlContent: string): MarkdownResumeStructure {
+export function validateMarkdownResumeStructure(
+  htmlContent: string
+): MarkdownResumeStructure {
   return {
     hasNameHeader: /<h1.*?>.*?<\/h1>/i.test(htmlContent),
-    hasContactSection: /iconify.*?(charm:person|tabler:mail|tabler:phone|ic:outline-location-on|tabler:brand-github|tabler:brand-linkedin)/i.test(htmlContent),
+    hasContactSection:
+      /iconify.*?(charm:person|tabler:mail|tabler:phone|ic:outline-location-on|tabler:brand-github|tabler:brand-linkedin)/i.test(
+        htmlContent
+      ),
     hasExperienceSection: /## Experience/i.test(htmlContent),
     hasEducationSection: /## Education/i.test(htmlContent),
     hasSkillsSection: /## Skills/i.test(htmlContent),
@@ -126,15 +135,15 @@ export function validateMarkdownResumeStructure(htmlContent: string): MarkdownRe
 function extractOptionalSections(htmlContent: string): string[] {
   const sections: string[] = [];
   const sectionMatches = htmlContent.match(/<h2.*?>(.*?)<\/h2>/gi) || [];
-  
-  sectionMatches.forEach(match => {
-    const sectionName = match.replace(/<\/?h2.*?>/gi, '').trim();
+
+  sectionMatches.forEach((match) => {
+    const sectionName = match.replace(/<\/?h2.*?>/gi, "").trim();
     const normalizedName = sectionName.toLowerCase();
-    
-    if (!['experience', 'education', 'skills'].includes(normalizedName)) {
+
+    if (!["experience", "education", "skills"].includes(normalizedName)) {
       sections.push(sectionName);
     }
   });
-  
+
   return sections;
 }

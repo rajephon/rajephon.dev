@@ -2,7 +2,7 @@
  * Type definitions for the Korean Resume Translation feature
  */
 
-export type Language = 'en' | 'ko';
+export type Language = "en" | "ko";
 
 export interface ResumeFrontmatter {
   name: string;

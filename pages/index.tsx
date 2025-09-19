@@ -2,35 +2,35 @@
  * Homepage - Personal Introduction and Navigation
  */
 
-import React from 'react';
-import { GetStaticProps } from 'next';
-import Link from 'next/link';
-import Layout from '@/components/Layout';
-import { HomePageProps } from '@/lib/component-interfaces';
-import { siteConfig } from '@/lib/config';
+import React from "react";
+import { GetStaticProps } from "next";
+import Link from "next/link";
+import Layout from "@/components/Layout";
+import { HomePageProps } from "@/lib/component-interfaces";
+import { siteConfig } from "@/lib/config";
 
 const HomePage: React.FC<HomePageProps> = ({ siteConfig: config }) => {
   return (
-    <Layout 
+    <Layout
       title="Home"
       description={config.description}
-      showNavigation={false}  // Hide navigation for minimal design
+      showNavigation={false} // Hide navigation for minimal design
     >
       <div className="max-w-4xl mx-auto px-4 py-16">
         {/* Simple text-based content */}
-        <h1 className="text-3xl font-bold mb-4">
-          {config.author}
-        </h1>
-        
+        <h1 className="text-3xl font-bold mb-4">{config.author}</h1>
+
         <p className="text-lg mb-8">
-          Backend engineer with 8 years of experience designing scalable distributed systems,
-          from game servers supporting millions of players to AI platforms integrating real-time LLM streaming.
+          Backend engineer with 8 years of experience designing scalable
+          distributed systems, from game servers supporting millions of players
+          to AI platforms integrating real-time LLM streaming.
         </p>
 
         <p className="mb-8">
-          Currently working on building the backend systems for "Aster," a global personal AI agent.
-          Previously led server development for "Brixity," which reached #1 on app store charts
-          and handled over 12 million requests per hour.
+          Currently working on building the backend systems for
+          &quot;Aster,&quot; a global personal AI agent. Previously led server
+          development for &quot;Brixity,&quot; which reached #1 on app store
+          charts and handled over 12 million requests per hour.
         </p>
 
         {/* Simple text links */}
@@ -41,7 +41,7 @@ const HomePage: React.FC<HomePageProps> = ({ siteConfig: config }) => {
         </p>
 
         <p className="mb-4">
-          <a 
+          <a
             href={config.socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
@@ -54,10 +54,11 @@ const HomePage: React.FC<HomePageProps> = ({ siteConfig: config }) => {
         {/* Contact information */}
         <div className="mt-12">
           <h2 className="text-xl font-semibold mb-4">Contact</h2>
-          
+
           {config.socialLinks.email && (
             <p className="mb-2">
-              Email: <a 
+              Email:{" "}
+              <a
                 href={`mailto:${config.socialLinks.email}`}
                 className="text-blue-600 hover:underline"
               >
@@ -68,7 +69,8 @@ const HomePage: React.FC<HomePageProps> = ({ siteConfig: config }) => {
 
           {config.socialLinks.linkedin && (
             <p className="mb-2">
-              LinkedIn: <a
+              LinkedIn:{" "}
+              <a
                 href={config.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
