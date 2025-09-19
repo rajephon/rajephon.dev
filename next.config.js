@@ -7,8 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/rajephon-dev' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/rajephon-dev' : '',
+  assetPrefix: '',
+  basePath: '',
   // Enable static page generation
   exportPathMap: async function (
     defaultPathMap,
