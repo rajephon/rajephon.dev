@@ -79,6 +79,9 @@ export interface ResumeRendererProps {
 
   /** PDF download URL (optional) */
   pdfUrl?: string;
+
+  /** Callback when PDF download is triggered */
+  onPDFDownload?: () => void;
 }
 
 /**

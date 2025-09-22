@@ -5,7 +5,9 @@ A modern, responsive personal website built with Next.js, featuring a markdown-t
 ## ✨ Features
 
 - **Markdown Resume**: Write your resume in markdown with frontmatter metadata
+- **Bilingual Support**: Korean/English resume with language toggle
 - **PDF Export**: Automatic PDF generation with print-optimized styling
+- **Google Analytics**: Privacy-first GA4 integration with GDPR compliance
 - **Responsive Design**: Mobile-first design with Tailwind CSS
 - **Dark Mode**: Automatic dark/light theme switching
 - **SEO Optimized**: Meta tags, Open Graph, structured data
@@ -59,20 +61,29 @@ rajephon-dev/
 │   ├── components/          # React components
 │   │   ├── Layout.tsx
 │   │   ├── ResumeRenderer.tsx
-│   │   └── PDFExportButton.tsx
+│   │   ├── LanguageToggle.tsx
+│   │   ├── Analytics.tsx
+│   │   └── ConsentBanner.tsx
 │   ├── pages/              # Next.js pages
 │   │   ├── index.tsx       # Homepage
 │   │   └── resume.tsx      # Resume page
 │   ├── lib/                # Utilities and config
 │   │   ├── config.ts
 │   │   ├── markdown.ts
+│   │   ├── analytics.ts    # GA4 tracking
+│   │   ├── consent.ts      # GDPR compliance
 │   │   └── resume-schema.ts
+│   ├── hooks/              # React hooks
+│   │   ├── useAnalytics.ts
+│   │   ├── useConsent.ts
+│   │   └── useLanguageToggle.ts
 │   ├── styles/             # CSS and themes
 │   │   ├── globals.css
 │   │   ├── resume-base.css
 │   │   └── themes/
 │   └── data/
-│       └── resume.md       # Your resume content
+│       ├── resume.md       # English resume
+│       └── resume-ko.md    # Korean resume
 ├── scripts/                # Build scripts
 ├── .github/workflows/      # GitHub Actions
 └── public/                 # Static assets
@@ -97,6 +108,29 @@ Update `src/lib/config.ts` with your details:
 - Social links
 - SEO settings
 - Domain configuration
+- Analytics settings
+
+### Google Analytics Setup
+1. **Get GA4 Measurement ID**:
+   - Create a Google Analytics 4 property
+   - Copy the Measurement ID (format: G-XXXXXXXXXX)
+
+2. **Local Development**:
+   ```bash
+   # Create .env.local file
+   NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+   ```
+
+3. **GitHub Pages Deployment**:
+   - Go to Repository Settings → Secrets and variables → Actions
+   - Add new secret: `NEXT_PUBLIC_GA_ID` with your GA4 ID
+   - Analytics will be automatically enabled on deployment
+
+4. **Privacy & GDPR Compliance**:
+   - Consent banner automatically appears for EU users
+   - Respects Do Not Track browser settings
+   - Users can manage consent preferences
+   - Analytics disabled without valid consent
 
 ## 🧪 Testing
 

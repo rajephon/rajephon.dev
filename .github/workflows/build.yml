@@ -48,5 +48,6 @@ jobs:
       run: pnpm run build
       env:
         NODE_ENV: production
+        NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
 
 

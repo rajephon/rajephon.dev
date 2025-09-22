@@ -2,7 +2,7 @@
  * Resume Page - Displays parsed markdown resume with PDF export and language toggle
  */
 
-import React from "react";
+import React, { useEffect } from "react";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import path from "path";
@@ -13,6 +13,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { parseMultiLanguageResume } from "@/lib/markdown";
 import { validateResumeData } from "@/lib/resume-schema";
 import { useLanguageToggle } from "@/hooks/useLanguageToggle";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 interface MultiLanguageResumePageProps {
   resumeData: {
@@ -32,6 +33,8 @@ const ResumePage: React.FC<MultiLanguageResumePageProps> = ({
   pdfUrls = { en: "/resume.pdf", ko: "/resume-ko.pdf" },
 }) => {
   const { currentLanguage, setLanguage } = useLanguageToggle("en");
+  const { trackLanguageToggle, trackPDFDownload, trackPageView } =
+    useAnalytics();
 
   // Get current language data
   const currentResumeData = resumeData[currentLanguage];
@@ -40,6 +43,28 @@ const ResumePage: React.FC<MultiLanguageResumePageProps> = ({
   const pageDescription =
     currentResumeData.frontmatter.summary ||
     `${currentResumeData.frontmatter.title} - Professional resume and experience`;
+
+  // Track page view on mount and language change
+  useEffect(() => {
+    trackPageView(pageTitle, "/resume", currentLanguage);
+  }, [pageTitle, currentLanguage, trackPageView]);
+
+  // Enhanced language change handler with analytics
+  const handleLanguageChange = (newLanguage: "en" | "ko") => {
+    const previousLanguage = currentLanguage;
+    setLanguage(newLanguage);
+
+    // Track language toggle event
+    if (previousLanguage !== newLanguage) {
+      trackLanguageToggle(previousLanguage, newLanguage);
+    }
+  };
+
+  // PDF download handler with analytics
+  const handlePDFDownload = (pdfUrl: string, language: "en" | "ko") => {
+    const fileName = pdfUrl.split("/").pop() || `resume-${language}.pdf`;
+    trackPDFDownload(fileName, language);
+  };
 
   return (
     <Layout
@@ -58,7 +83,7 @@ const ResumePage: React.FC<MultiLanguageResumePageProps> = ({
 
           <LanguageToggle
             currentLanguage={currentLanguage}
-            onLanguageChange={setLanguage}
+            onLanguageChange={handleLanguageChange}
             variant="text"
             className="ml-4"
           />
@@ -75,6 +100,9 @@ const ResumePage: React.FC<MultiLanguageResumePageProps> = ({
             className="p-0" // Remove padding for flat appearance
             pdfUrl={showPDFButton ? currentPdfUrl : undefined}
             language={currentLanguage}
+            onPDFDownload={() =>
+              handlePDFDownload(currentPdfUrl, currentLanguage)
+            }
           />
         </div>
       </div>

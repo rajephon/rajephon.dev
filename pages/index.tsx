@@ -102,9 +102,18 @@ const HomePage: React.FC<HomePageProps> = ({ siteConfig: config }) => {
 };
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+  // Ensure all values are serializable (convert undefined to null)
+  const serializableConfig = {
+    ...siteConfig,
+    analytics: {
+      ...siteConfig.analytics,
+      trackingId: siteConfig.analytics.trackingId || null,
+    },
+  };
+
   return {
     props: {
-      siteConfig,
+      siteConfig: serializableConfig,
     },
   };
 };

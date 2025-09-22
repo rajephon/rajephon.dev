@@ -21,6 +21,7 @@ const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
   theme = "markdown-resume",
   pdfUrl,
   language = "en",
+  onPDFDownload,
 }) => {
   const containerClasses = [
     "resume",
@@ -201,6 +202,7 @@ const ResumeRenderer: React.FC<ExtendedResumeRendererProps> = ({
                 download={`${frontmatter.name?.toLowerCase().replace(/\s+/g, "-") || "resume"}-resume.pdf`}
                 className="text-blue-600 hover:underline"
                 data-testid="pdf-download"
+                onClick={onPDFDownload}
               >
                 {language === "ko" ? "PDF 버전" : "PDF version"}
               </a>

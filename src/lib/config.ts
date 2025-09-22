@@ -4,6 +4,15 @@
  * Central configuration for the rajephon.dev personal website
  */
 
+export interface AnalyticsConfig {
+  trackingId?: string | null;
+  enabled: boolean;
+  respectDNT: boolean;
+  consentRequired: boolean;
+  enableInDevelopment: boolean;
+  debugMode: boolean;
+}
+
 export interface SiteConfig {
   title: string;
   description: string;
@@ -11,6 +20,7 @@ export interface SiteConfig {
   author: string;
   socialLinks: SocialLinks;
   seo: SEOConfig;
+  analytics: AnalyticsConfig;
 }
 
 export interface SocialLinks {
@@ -73,6 +83,15 @@ export const siteConfig: SiteConfig = {
         },
       ],
     },
+  },
+
+  analytics: {
+    trackingId: process.env.NEXT_PUBLIC_GA_ID,
+    enabled: !!process.env.NEXT_PUBLIC_GA_ID,
+    respectDNT: true,
+    consentRequired: true,
+    enableInDevelopment: false,
+    debugMode: process.env.NODE_ENV === "development",
   },
 };
 

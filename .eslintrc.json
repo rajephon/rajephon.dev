@@ -17,5 +17,8 @@
     "browser": true,
     "node": true,
     "es2020": true
+  },
+  "globals": {
+    "gtag": "readonly"
   }
 }
