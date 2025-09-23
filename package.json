@@ -21,7 +21,7 @@
     "audit": "npx lighthouse http://localhost:3000 --output html",
     "analyze": "ANALYZE=true pnpm run build",
     "perf": "node scripts/performance-test.js",
-    "deploy": "pnpm run build && gh-pages --nojekyll -d out",
+    "deploy": "NODE_ENV=production pnpm run build && gh-pages --nojekyll -d out",
     "clean": "rm -rf .next out coverage",
     "setup": "pnpm install && pnpm run type-check && pnpm run lint",
     "ci": "pnpm run setup && pnpm run test:coverage && pnpm run build"
