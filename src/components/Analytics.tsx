@@ -8,7 +8,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteConfig } from "@/lib/config";
 import { hasValidConsent, initializeGoogleConsentMode } from "@/lib/consent";
 import { initializeAnalytics, isTrackingEnabled } from "@/lib/analytics";
@@ -36,7 +35,6 @@ export default function Analytics({
   debug = false,
 }: AnalyticsProps): JSX.Element | null {
   const [shouldLoadAnalytics, setShouldLoadAnalytics] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
 
   // Use provided tracking ID or fall back to site config
   const effectiveTrackingId = trackingId || siteConfig.analytics.trackingId;
@@ -74,11 +72,10 @@ export default function Analytics({
       initializeGoogleConsentMode();
 
       // Initialize analytics utilities
-      const initialized = initializeAnalytics();
-      setIsInitialized(initialized);
+      initializeAnalytics();
 
       if (isDebugMode) {
-        console.log("Analytics: Initialized:", initialized);
+        console.log("Analytics: Initialized");
       }
     }
   }, [effectiveTrackingId, disabled, isDebugMode]);
@@ -116,20 +113,25 @@ export default function Analytics({
 
   return (
     <>
-      <GoogleAnalytics gaId={effectiveTrackingId} />
-      {isDebugMode && (
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              console.log("Google Analytics loaded with ID: ${effectiveTrackingId}");
-              window.dataLayer = window.dataLayer || [];
-              window.gtag = window.gtag || function() {
-                window.dataLayer.push(arguments);
-              };
-            `,
-          }}
-        />
-      )}
+      {/* Google Analytics 직접 구현 */}
+      <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${effectiveTrackingId}`}
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag("js", new Date());
+            gtag("config", "${effectiveTrackingId}", {
+              anonymize_ip: true,
+              cookie_flags: "max-age=7200;secure;samesite=none"
+            });
+            ${isDebugMode ? `console.log("Google Analytics loaded with ID: ${effectiveTrackingId}");` : ""}
+          `,
+        }}
+      />
     </>
   );
 }

@@ -16,7 +16,6 @@ import "@/styles/print.css";
 
 // Import Analytics components
 import Analytics from "@/components/Analytics";
-import ConsentBanner from "@/components/ConsentBanner";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -26,13 +25,8 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Component {...pageProps} />
 
-      {/* Analytics and Consent Management */}
-      <Analytics />
-      <ConsentBanner
-        autoHide={true}
-        showPreferences={true}
-        description="We use Google Analytics to understand how visitors interact with our website. This helps us improve your experience. Your data is processed anonymously and you can withdraw consent at any time."
-      />
+      {/* Analytics */}
+      <Analytics debug={true} />
     </>
   );
 }

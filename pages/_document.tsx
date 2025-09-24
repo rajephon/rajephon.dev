@@ -70,6 +70,26 @@ export default function Document() {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://rajephon.dev/profile.png" />
+
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-NK91L2R2R6"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-NK91L2R2R6', {
+                anonymize_ip: true,
+                cookie_flags: 'max-age=7200;secure;samesite=none'
+              });
+              console.log('Google Analytics loaded directly in _document.tsx');
+            `,
+          }}
+        />
       </Head>
       <body className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
         <Main />

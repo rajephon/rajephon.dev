@@ -89,7 +89,7 @@ export const siteConfig: SiteConfig = {
     trackingId: process.env.NEXT_PUBLIC_GA_ID,
     enabled: !!process.env.NEXT_PUBLIC_GA_ID,
     respectDNT: true,
-    consentRequired: true,
+    consentRequired: false, // 한국 법률에 따라 동의 불필요
     enableInDevelopment: false,
     debugMode: process.env.NODE_ENV === "development",
   },

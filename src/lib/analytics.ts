@@ -76,11 +76,6 @@ export function isTrackingEnabled(): boolean {
     return false;
   }
 
-  // Check if gtag is available
-  if (typeof window === "undefined" || !window.gtag) {
-    return false;
-  }
-
   return true;
 }
 
@@ -105,6 +100,8 @@ export function trackLanguageToggle(
   }
 
   try {
+    console.log("Tracking language toggle:", { previousLang, newLang, method });
+
     window.gtag("event", "language_toggle", {
       event_category: "user_preference",
       previous_language: previousLang,
@@ -114,6 +111,8 @@ export function trackLanguageToggle(
         custom_parameter_1: "language_preference_change",
       },
     });
+
+    console.log("Language toggle gtag called successfully");
 
     if (siteConfig.analytics.debugMode) {
       console.log("Analytics: Language toggle tracked", {
@@ -141,6 +140,12 @@ export function trackPDFDownload(
   }
 
   try {
+    console.log("Tracking PDF download:", {
+      fileName,
+      language,
+      method,
+      fileSize,
+    });
     const eventParams: Record<string, any> = {
       event_category: "engagement",
       file_name: fileName,
@@ -154,6 +159,8 @@ export function trackPDFDownload(
     }
 
     window.gtag("event", "file_download", eventParams);
+
+    console.log("PDF download gtag called successfully");
 
     if (siteConfig.analytics.debugMode) {
       console.log("Analytics: PDF download tracked", {
