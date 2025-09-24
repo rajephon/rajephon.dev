@@ -41,6 +41,16 @@ pnpm run generate-pdf # Generate both English and Korean resume PDFs
 pnpm run test         # Run tests
 ```
 
+## Commit Guidelines
+Follow [Conventional Commits](https://www.conventionalcommits.org/) format for all git commits:
+- `feat:` for new features
+- `fix:` for bug fixes
+- `docs:` for documentation changes
+- `style:` for formatting changes
+- `refactor:` for code refactoring
+- `test:` for test changes
+- `chore:` for maintenance tasks
+
 ## Architecture Notes
 - Static site generation with Next.js export
 - Bilingual markdown resume processed at build time (EN/KO)
