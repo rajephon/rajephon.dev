@@ -17,25 +17,25 @@ lastUpdated: "2025-09-18T00:00:00.000Z"
   : **Global AI Platform Corporation**
   : **Mar 2024 - Present**
 
-As a Backend Developer at Global AI Platform Corp, I work on building the backend systems for "Aster," a global personal AI agent showcased at CES 2025 and MWC25.
+Building backend systems for "Aster," a global personal AI agent showcased at CES 2025 and MWC25.
 
 - Architected scalable Go-based gRPC microservices to handle high-throughput user requests across distributed systems
 - Integrated LLM agents with real-time streaming capabilities to deliver context-aware and adaptive user interactions
 - Built infrastructure automation with Pulumi, AWS, Kubernetes and Helm for zero-downtime deployments
-- Conducted load testing and performance optimization reducing response times and improving system reliability
+- Conducted load testing and performance optimization, reducing response times and improving system reliability
 - Developed the MCP (Model Context Protocol) ecosystem, including reference servers and a registry system, enabling AI agents to dynamically integrate with external tools and data sources
 
 **Server Software Engineer → Lead Server Software Engineer**  
 **Devsisters (Studio Kingdom)** : **Dec 2018 - Jan 2024**
 
-Worked on "Brixity," a global 3D sandbox city-building game that reached #1 on both Apple App Store and Google Play Store charts within a day of launch, surpassing 1 million downloads shortly after.
+Developed "Brixity," a global 3D sandbox city-building game that reached #1 on both Apple App Store and Google Play Store charts within a day of launch, surpassing 1 million downloads shortly after.
 
-- Spearheaded the development of a robust and scalable backend capable of handling over 12 million requests per hour, designed for a large and global player base
+- Spearheaded development of a scalable backend handling over 12 million requests per hour for a global player base
 - Owned the entire lifecycle of the game server—from initial development and launch to live operations and incident response
 - Designed and maintained the multiplayer system, including dynamic play map and room management features, ensuring smooth real-time collaboration
-- Increased server throughput by over 50% through performance tuning and load testing. Led the migration from amd64 to arm64 architecture in collaboration with the infrastructure team, significantly improving both performance and cost efficiency
+- Increased server throughput by over 50% through performance tuning and load testing; led migration from amd64 to arm64 architecture with infrastructure team, significantly improving performance and cost efficiency
 - Developed internal service tools, including a web-based 3D viewer that renders user-generated building blueprints in the browser, supporting better moderation and service management
-- Proactively built productivity-enhancing tools using GitHub Actions, Slack bots, and custom utilities, streamlining workflows like in-game testing, data replication, and content extraction
+- Built productivity-enhancing tools using GitHub Actions, Slack bots, and custom utilities, streamlining workflows for in-game testing, data replication, and content extraction
 
 **Software Engineer**
   : **Anyfi Inc.**
@@ -90,7 +90,7 @@ Seoul National University of Science and Engineering
 **LangDiff TypeScript Implementation** - Implemented TypeScript version of language-based difference analysis tool, increasing accessibility for frontend developers and contributing to broader adoption
 - [GitHub PR #10](https://github.com/globalaiplatform/langdiff/pull/10)
 
-**OpenInference AI Observability** - Enhanced OpenTelemetry-based AI observability library with SessionMessage support and Streamable HTTP transport instrumentation for modern LLM applications
+**OpenInference AI Observability** - Enhanced OpenTelemetry-based AI observability library with SessionMessage support and MCP Streamable HTTP transport instrumentation for LLM applications
 - [GitHub PR #1640](https://github.com/Arize-ai/openinference/pull/1640)
 - [GitHub PR #1634](https://github.com/Arize-ai/openinference/pull/1634)
 
@@ -100,6 +100,6 @@ Seoul National University of Science and Engineering
 - Built with TypeScript, React.js, Mapbox
 - [Live Site](https://dream-tree.rajephon.dev/)
 
-**Duzon Payslip Web Viewer** - Browser-based payslip decryption and viewer, eliminating the need for separate software installation
+**Duzon Payslip Web Viewer** - Browser-based tool for payslip decryption and viewing, eliminating the need for separate software installation
 - Developed with TypeScript, React.js
 - [Live Site](https://pay.rajephon.dev/)
