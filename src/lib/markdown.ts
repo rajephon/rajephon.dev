@@ -94,6 +94,14 @@ export function extractFrontmatter(markdownContent: string): {
  * Convert markdown content to HTML using remark
  */
 export async function processMarkdownToHtml(markdown: string): Promise<string> {
+  // First, preserve page break markers by replacing them with a placeholder
+  // Use a placeholder that won't be interpreted as markdown syntax
+  const PAGE_BREAK_PLACEHOLDER = "\n\n[[[PDF_PAGE_BREAK]]]\n\n";
+  const processedMarkdown = markdown.replace(
+    /<!--\s*NEW_PAGE\s*-->/g,
+    PAGE_BREAK_PLACEHOLDER
+  );
+
   const processor = remark()
     .use(remarkGfm) // GitHub Flavored Markdown
     .use(remarkMath) // LaTeX math support
@@ -148,11 +156,23 @@ export async function processMarkdownToHtml(markdown: string): Promise<string> {
       },
     });
 
-  const result = await processor.process(markdown);
+  const result = await processor.process(processedMarkdown);
   let html = String(result);
 
   // Post-process to ensure iconify spans are preserved
   html = html.replace(/data-icon="([^"]+)"/g, 'data-icon="$1"');
+
+  // Process page break markers: convert placeholder back to div with page break class
+  // The placeholder will likely be wrapped in <p> tags after markdown processing
+  html = html.replace(
+    /<p>\s*\[\[\[PDF_PAGE_BREAK\]\]\]\s*<\/p>/g,
+    '<div class="pdf-page-break"></div>'
+  );
+  // Also handle if it's not wrapped in p tags
+  html = html.replace(
+    /\[\[\[PDF_PAGE_BREAK\]\]\]/g,
+    '<div class="pdf-page-break"></div>'
+  );
 
   // Add special class to Side Projects section for PDF exclusion
   // Match both English and Korean versions

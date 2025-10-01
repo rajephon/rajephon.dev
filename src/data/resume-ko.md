@@ -22,7 +22,6 @@ Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC25에서 발
 - 분산 시스템에서 대용량 사용자 요청을 처리하는 확장 가능한 Go 기반 gRPC 마이크로서비스 아키텍처 설계
 - LLM 에이전트와 실시간 스트리밍 기능을 통합하여 상황에 맞는 적응형 사용자 경험 제공
 - Pulumi, AWS, Kubernetes, Helm을 활용한 무중단 배포 인프라 자동화 구축
-- 로드 테스트 및 성능 최적화를 통해 응답 시간 단축과 시스템 안정성 향상
 - MCP(Model Context Protocol) 생태계 개발: 레퍼런스 서버와 레지스트리 시스템을 구축하여 AI 에이전트가 외부 도구 및 데이터 소스와 동적으로 연결될 수 있도록 지원
 
 **Server Software Engineer → Lead Server Software Engineer**  
@@ -36,6 +35,8 @@ Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC25에서 발
 - 성능 튜닝 및 로드 테스트를 통해 서버 처리량 50% 이상 향상, 성능과 비용 효율성을 대폭 개선
 - 사용자 생성 건물 콘텐츠를 브라우저에서 렌더링하는 웹 기반 3D 뷰어 등 내부 서비스 도구 개발을 통해 운영 효율성과 서비스 관리 품질 향상
 - GitHub Actions, Slack 봇, 커스텀 유틸리티를 활용한 생산성 도구를 적극 구축하여 게임 내 테스트, 데이터 복제, 콘텐츠 추출 등 워크플로우 자동화
+
+<!--NEW_PAGE-->
 
 **Software Engineer**
   : **Anyfi Inc.**

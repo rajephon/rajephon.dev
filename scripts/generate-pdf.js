@@ -158,6 +158,17 @@ async function generatePDF(language = null) {
             .lang-ko {
               font-family: 'Noto Sans KR', 'Pretendard', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif !important;
             }
+            
+            /* Page break marker support */
+            .pdf-page-break {
+              page-break-after: always !important;
+              break-after: page !important;
+              display: block !important;
+              height: 0 !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              border: none !important;
+            }
           }
           
           /* Hide Side Projects section in PDF */
@@ -168,6 +179,17 @@ async function generatePDF(language = null) {
           /* Ensure Korean fonts are loaded */
           .font-korean, .lang-ko {
             font-family: 'Noto Sans KR', 'Pretendard', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif !important;
+          }
+          
+          /* Page break marker for PDF generation */
+          .pdf-page-break {
+            page-break-after: always;
+            break-after: page;
+            display: block;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
           }
         `,
       });
