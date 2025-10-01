@@ -33,7 +33,7 @@ Developed "Brixity," a global 3D sandbox city-building game that reached #1 on b
 - Spearheaded development of a scalable backend handling over 12 million requests per hour for a global player base
 - Owned the entire lifecycle of the game server—from initial development and launch to live operations and incident response
 - Designed and maintained the multiplayer system, including dynamic play map and room management features, ensuring smooth real-time collaboration
-- Increased server throughput by over 50% through performance tuning and load testing; led migration from amd64 to arm64 architecture with infrastructure team, significantly improving performance and cost efficiency
+- Increased server throughput by over 50% through performance tuning and load testing, significantly improving performance and cost efficiency
 - Developed internal service tools, including a web-based 3D viewer that renders user-generated building blueprints in the browser, supporting better moderation and service management
 - Built productivity-enhancing tools using GitHub Actions, Slack bots, and custom utilities, streamlining workflows for in-game testing, data replication, and content extraction
 
