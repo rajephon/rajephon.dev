@@ -41,21 +41,12 @@ Developed "Brixity," a global 3D sandbox city-building game that reached #1 on b
   : **Anyfi Inc.**
   : **Nov 2016 - Jun 2018**
 
-Worked on multiple innovative networking projects at Anyfi, a company specializing in mobile mesh networking technology.
+Developed mobile mesh networking solutions at Anyfi, specializing in Wi-Fi Direct multi-hop networking technology.
 
-**Project 1: Anyfi Mesh Network Platform**
-- Conducted R&D on Wi-Fi Direct multi-hop networking, implementing IPv4/IPv6 hybrid connectivity for collision avoidance and reliable data transmission
-- Designed and implemented mobile mesh networking features including information propagation, graph synchronization, packet design, relay, and encryption to ensure smooth communication
-- Developed and launched a reference application demonstrating the Anyfi technology
-- Designed and built a C++ native cross-platform library for multi-platform support
-- Researched Local VPN implementation on iOS to explore technical feasibility
-- Contributed to establishing an engineering culture with Agile processes, coding conventions, code reviews, and TDD practices
-
-**Project 2: Wi-Fi Captive Portal System**
-- Led the design and development of a Wi-Fi captive portal system that collected client connection data and enabled targeted web push advertisements
-- Built the full stack, from router firmware packages to backend server development
-- Implemented multi-router group management and remote captive portal authentication servers
-- Developed push notification delivery systems (web and Android) and an administrative dashboard
+- Conducted R&D on Wi-Fi Direct multi-hop networking with IPv4/IPv6 hybrid connectivity for reliable data transmission
+- Designed core mesh networking features including information propagation and graph synchronization
+- Built cross-platform C++ library and reference applications demonstrating mesh networking capabilities
+- Contributed to establishing engineering best practices including Agile processes, code reviews, and TDD
 
 ## Education
 

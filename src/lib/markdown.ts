@@ -160,19 +160,27 @@ export async function processMarkdownToHtml(markdown: string): Promise<string> {
     /(<h3[^>]*>(?:Side Projects|사이드 프로젝트)<\/h3>)/gi,
     '<div class="pdf-hide-section">$1'
   );
-  
+
   // Find the next h2 or h3 after Side Projects to close the div
   // This regex finds content between Side Projects heading and next major heading
   html = html.replace(
     /(<div class="pdf-hide-section"><h3[^>]*>(?:Side Projects|사이드 프로젝트)<\/h3>[\s\S]*?)(<h[23][^>]*>)/gi,
-    '$1</div>$2'
+    "$1</div>$2"
   );
-  
+
   // If Side Projects is the last section, close div at the end
-  if (html.includes('class="pdf-hide-section"') && !html.match(/<\/div>[\s]*$/)) {
-    const lastSectionMatch = html.match(/(<div class="pdf-hide-section">[\s\S]+)$/);
-    if (lastSectionMatch && !lastSectionMatch[0].includes('</div>')) {
-      html = html.replace(/(<div class="pdf-hide-section">[\s\S]+)$/, '$1</div>');
+  if (
+    html.includes('class="pdf-hide-section"') &&
+    !html.match(/<\/div>[\s]*$/)
+  ) {
+    const lastSectionMatch = html.match(
+      /(<div class="pdf-hide-section">[\s\S]+)$/
+    );
+    if (lastSectionMatch && !lastSectionMatch[0].includes("</div>")) {
+      html = html.replace(
+        /(<div class="pdf-hide-section">[\s\S]+)$/,
+        "$1</div>"
+      );
     }
   }
 
