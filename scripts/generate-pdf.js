@@ -147,6 +147,7 @@ async function generatePDF(language = null) {
           
           @media print {
             .print-hide { display: none !important; }
+            .pdf-hide-section { display: none !important; }
             body { 
               background: white !important; 
               font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -157,6 +158,11 @@ async function generatePDF(language = null) {
             .lang-ko {
               font-family: 'Noto Sans KR', 'Pretendard', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif !important;
             }
+          }
+          
+          /* Hide Side Projects section in PDF */
+          .pdf-hide-section {
+            display: none !important;
           }
           
           /* Ensure Korean fonts are loaded */
