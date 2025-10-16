@@ -21,8 +21,8 @@ Building backend systems for "Aster," a global personal AI agent showcased at CE
 
 - Architected scalable Go-based gRPC microservices to handle high-throughput user requests across distributed systems
 - Integrated LLM agents with real-time streaming capabilities to deliver context-aware and adaptive user interactions
+- Built multiple PoCs and prototypes to evaluate the feasibility of new agent capabilities
 - Built infrastructure automation with Pulumi, AWS, Kubernetes and Helm for zero-downtime deployments
-- Conducted load testing and performance optimization, reducing response times and improving system reliability
 - Developed the MCP (Model Context Protocol) ecosystem, including reference servers and a registry system, enabling AI agents to dynamically integrate with external tools and data sources
 
 **Server Software Engineer → Lead Server Software Engineer**  
