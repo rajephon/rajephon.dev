@@ -80,7 +80,7 @@ SKT 산하 Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC2
 
 ### 오픈소스 기여
 
-**LangDiff TypeScript 구현** - 언어 기반 차이 분석 도구의 TypeScript 버전 구현으로 프론트엔드 개발자 접근성 향상 및 광범위한 채택에 기여
+**LangDiff TypeScript 포팅** — LLM의 스트리밍 출력과 클라이언트 상태를 효율적으로 동기화하기 위한 structured diff engine의 TypeScript 버전을 구현하여 웹/프론트엔드 환경에서의 활용성을 강화
 - [GitHub PR #10](https://github.com/globalaiplatform/langdiff/pull/10)
 
 **OpenInference AI Observability** - SessionMessage 지원 및 LLM 애플리케이션용 MCP Streamable HTTP 전송 계측 기능 추가로 OpenTelemetry 기반 AI 관측성 라이브러리 개선
