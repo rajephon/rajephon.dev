@@ -13,9 +13,13 @@ lastUpdated: "2025-09-18T00:00:00.000Z"
 
 ## Experience
 
+**Backend Software Engineer**
+  : **Danggeun Market Inc.**
+  : **Jan 2026 - Present**
+
 **Software Engineer**
   : **Global AI Platform Corporation**
-  : **Mar 2024 - Present**
+  : **Mar 2024 - Dec 2025**
 
 Building backend systems for "Aster," a global personal AI agent showcased at CES 2025 and MWC25.
 

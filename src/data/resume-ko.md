@@ -13,9 +13,13 @@ lastUpdated: "2025-09-18T00:00:00.000Z"
 
 ## Experience
 
+**Backend Software Engineer**
+  : **Danggeun Market Inc.**
+  : **2026년 1월 - 현재**
+
 **Software Engineer**
   : **Global AI Platform Corporation**
-  : **2024년 3월 - 현재**
+  : **2024년 3월 - 2025년 12월**
 
 SKT 산하 Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC25에서 발표된 글로벌 개인 AI 에이전트 "Aster"의 백엔드 시스템을 구축하고 있습니다.
 
