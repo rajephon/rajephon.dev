@@ -71,8 +71,6 @@ SKT 산하 Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC2
 
 **프로그래밍 언어:** Go, TypeScript/JavaScript, Python, C#, Java, C++
 
-**AI & LLM:** LLM Agent, RAG, MCP (Model Context Protocol), Prompt Engineering, Vector Search
-
 **백엔드 & 인프라:** Node.js, .NET, gRPC, Kubernetes, AWS, Terraform, Apache Kafka
 
 **데이터베이스:** CockroachDB, PostgreSQL, Redis

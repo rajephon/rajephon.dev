@@ -69,8 +69,6 @@ Seoul National University of Science and Engineering
 
 **Programming Languages:** Go, TypeScript/JavaScript, Python, C#, Java, C++
 
-**AI & LLM:** LLM Agent, RAG, MCP (Model Context Protocol), Prompt Engineering, Vector Search
-
 **Backend & Infrastructure:** Node.js, .NET, gRPC, Kubernetes, AWS, Terraform, Apache Kafka
 
 **Databases:** CockroachDB, PostgreSQL, Redis
