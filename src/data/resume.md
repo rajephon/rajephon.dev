@@ -20,7 +20,7 @@ lastUpdated: "2025-09-18T00:00:00.000Z"
 Developing and operating backend systems for Karrot's ad platform on the Advertiser Platform team.
 
 - Designed and built an LLM-based automated review system for outlink ad creatives end-to-end. Built a full pipeline combining OCR, landing page crawling, prompt engineering, rule-based review logic, and admin UI to automate the previously manual review process
-- Developed a multi-step AI-powered on-call response agent integrating MCP servers for Datadog, Grafana, Slack, and Notion with on-call response Skills, automating incident analysis and response
+- Developed a multi-step AI-powered on-call response agent integrating MCP servers for Datadog, Grafana, Slack, and Notion with on-call response Skills, supporting rapid incident analysis and response
 
 **Software Engineer**
   : **Global AI Platform Corporation**

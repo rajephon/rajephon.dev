@@ -20,7 +20,7 @@ lastUpdated: "2025-09-18T00:00:00.000Z"
 광고주플랫폼팀에서 당근마켓 광고 플랫폼의 백엔드 시스템을 개발·운영하고 있습니다.
 
 - LLM 기반 아웃링크 광고 소재 자동 심사 시스템을 설계·구현. OCR, 랜딩 페이지 크롤링, 프롬프트 엔지니어링, 룰베이스 심사 로직, 어드민 UI까지 E2E 파이프라인을 구축하여 기존 수동 심사 프로세스를 자동화
-- Datadog, Grafana, Slack, Notion 등 MCP 서버와 온콜 대응 Skill을 통합한 멀티스텝 AI 에이전트를 개발하여 장애 상황 분석 및 대응을 자동화
+- Datadog, Grafana, Slack, Notion 등 MCP 서버와 온콜 대응 Skill을 통합한 AI 에이전트를 개발하여 장애 상황 분석 및 대응을 지원
 
 **Software Engineer**
   : **Global AI Platform Corporation**
