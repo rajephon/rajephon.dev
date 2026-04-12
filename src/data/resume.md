@@ -41,9 +41,7 @@ Developed "Brixity," a global 3D sandbox city-building game that reached #1 on b
 
 - Spearheaded development of a scalable backend handling over 12 million requests per hour for a global player base
 - Owned the entire lifecycle of the game server—from initial development and launch to live operations and incident response
-- Designed and maintained the multiplayer system, including dynamic play map and room management features, ensuring smooth real-time collaboration
 - Increased server throughput by over 50% through performance tuning and load testing, significantly improving performance and cost efficiency
-- Developed internal service tools, including a web-based 3D viewer that renders user-generated building blueprints in the browser, supporting better moderation and service management
 - Built productivity-enhancing tools using GitHub Actions, Slack bots, and custom utilities, streamlining workflows for in-game testing, data replication, and content extraction
 
 **Software Engineer**
@@ -87,10 +85,9 @@ Seoul National University of Science and Engineering
 
 ### Open Source Contributions
 
-**LangDiff TypeScript Implementation** - Implemented TypeScript version of language-based difference analysis tool, increasing accessibility for frontend developers and contributing to broader adoption
+**LangDiff TypeScript Implementation** - Ported a structured diff engine for LLM streaming output to TypeScript for web/frontend environments
 - [GitHub PR #10](https://github.com/globalaiplatform/langdiff/pull/10)
 
-**OpenInference AI Observability** - Enhanced OpenTelemetry-based AI observability library with SessionMessage support and MCP Streamable HTTP transport instrumentation for LLM applications
-- [GitHub PR #1640](https://github.com/Arize-ai/openinference/pull/1640)
-- [GitHub PR #1634](https://github.com/Arize-ai/openinference/pull/1634)
+**OpenInference AI Observability** - Added SessionMessage support and MCP Streamable HTTP transport instrumentation to OpenTelemetry-based AI observability library
+- [GitHub PR #1640](https://github.com/Arize-ai/openinference/pull/1640), [#1634](https://github.com/Arize-ai/openinference/pull/1634)
 
