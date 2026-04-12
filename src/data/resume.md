@@ -7,7 +7,7 @@ website: "https://rajephon.dev"
 location: "Seoul, South Korea"
 linkedin: "https://www.linkedin.com/in/chanwoo-noh"
 github: "https://github.com/rajephon"
-summary: "Backend engineer with 8 years of experience designing scalable distributed systems, from game servers supporting millions of players to AI platforms integrating real-time LLM streaming."
+summary: "Software engineer with 9 years of experience designing LLM-based AI agent systems and large-scale distributed backends. Built production systems across diverse domains including ad platforms, AI agents, and global game servers."
 lastUpdated: "2025-09-18T00:00:00.000Z"
 ---
 
@@ -16,6 +16,11 @@ lastUpdated: "2025-09-18T00:00:00.000Z"
 **Backend Software Engineer**
   : **Danggeun Market Inc.**
   : **Jan 2026 - Present**
+
+Developing and operating backend systems for Karrot's ad platform on the Advertiser Platform team.
+
+- Designed and built an LLM-based automated review system for outlink ad creatives end-to-end. Built a full pipeline combining OCR, landing page crawling, prompt engineering, rule-based review logic, and admin UI to automate the previously manual review process
+- Developed a multi-step AI-powered on-call response agent integrating MCP servers for Datadog, Grafana, Slack, and Notion with on-call response Skills, automating incident analysis and response
 
 **Software Engineer**
   : **Global AI Platform Corporation**
@@ -64,6 +69,8 @@ Seoul National University of Science and Engineering
 
 **Programming Languages:** Go, TypeScript/JavaScript, Python, C#, Java, C++
 
+**AI & LLM:** LLM Agent, RAG, MCP (Model Context Protocol), Prompt Engineering, Vector Search
+
 **Backend & Infrastructure:** Node.js, .NET, gRPC, Kubernetes, AWS, Terraform, Apache Kafka
 
 **Databases:** CockroachDB, PostgreSQL, Redis
@@ -89,12 +96,3 @@ Seoul National University of Science and Engineering
 - [GitHub PR #1640](https://github.com/Arize-ai/openinference/pull/1640)
 - [GitHub PR #1634](https://github.com/Arize-ai/openinference/pull/1634)
 
-### Side Projects
-
-**Child Meal Card Store Map** - Interactive map service displaying nationwide child meal card affiliated stores using public data, helping families locate nearby stores
-- Built with TypeScript, React.js, Mapbox
-- [Live Site](https://dream-tree.rajephon.dev/)
-
-**Duzon Payslip Web Viewer** - Browser-based tool for payslip decryption and viewing, eliminating the need for separate software installation
-- Developed with TypeScript, React.js
-- [Live Site](https://pay.rajephon.dev/)

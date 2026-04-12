@@ -7,7 +7,7 @@ website: "https://rajephon.dev"
 location: "서울, 대한민국"
 linkedin: "https://www.linkedin.com/in/chanwoo-noh"
 github: "https://github.com/rajephon"
-summary: "수백만 명의 플레이어를 지원하는 게임 서버부터 실시간 LLM 스트리밍 기반 AI 플랫폼까지, 확장 가능한 분산 시스템을 설계하고 구축해온 8년차 백엔드 엔지니어입니다."
+summary: "LLM 기반 AI Agent 시스템과 대규모 분산 백엔드를 설계·운영해온 9년차 소프트웨어 엔지니어입니다. 광고 플랫폼, AI 에이전트, 글로벌 게임 서버 등 다양한 도메인에서 실서비스 경험을 쌓아왔습니다."
 lastUpdated: "2025-09-18T00:00:00.000Z"
 ---
 
@@ -17,11 +17,16 @@ lastUpdated: "2025-09-18T00:00:00.000Z"
   : **Danggeun Market Inc.**
   : **2026년 1월 - 현재**
 
+광고주플랫폼팀에서 당근마켓 광고 플랫폼의 백엔드 시스템을 개발·운영하고 있습니다.
+
+- LLM 기반 아웃링크 광고 소재 자동 심사 시스템을 설계·구현. OCR, 랜딩 페이지 크롤링, 프롬프트 엔지니어링, 룰베이스 심사 로직, 어드민 UI까지 E2E 파이프라인을 구축하여 기존 수동 심사 프로세스를 자동화
+- Datadog, Grafana, Slack, Notion 등 MCP 서버와 온콜 대응 Skill을 통합한 멀티스텝 AI 에이전트를 개발하여 장애 상황 분석 및 대응을 자동화
+
 **Software Engineer**
   : **Global AI Platform Corporation**
   : **2024년 3월 - 2025년 12월**
 
-SKT 산하 Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC25에서 발표된 글로벌 개인 AI 에이전트 "Aster"의 백엔드 시스템을 구축하고 있습니다.
+SKT 산하 Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC25에서 발표된 글로벌 개인 AI 에이전트 "Aster"의 백엔드 시스템을 구축했습니다.
 
 - 분산 시스템에서 대용량 사용자 요청을 처리하는 확장 가능한 Go 기반 gRPC 마이크로서비스 아키텍처 설계
 - LLM 에이전트와 실시간 스트리밍 기능을 통합하여 상황에 맞는 적응형 사용자 경험 제공
@@ -66,6 +71,8 @@ SKT 산하 Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC2
 
 **프로그래밍 언어:** Go, TypeScript/JavaScript, Python, C#, Java, C++
 
+**AI & LLM:** LLM Agent, RAG, MCP (Model Context Protocol), Prompt Engineering, Vector Search
+
 **백엔드 & 인프라:** Node.js, .NET, gRPC, Kubernetes, AWS, Terraform, Apache Kafka
 
 **데이터베이스:** CockroachDB, PostgreSQL, Redis
@@ -91,12 +98,3 @@ SKT 산하 Global AI Platform Corp의 백엔드 개발자로서 CES 2025와 MWC2
 - [GitHub PR #1640](https://github.com/Arize-ai/openinference/pull/1640)
 - [GitHub PR #1634](https://github.com/Arize-ai/openinference/pull/1634)
 
-### 사이드 프로젝트
-
-**아동급식카드 가맹점 지도** - 공공 데이터를 활용한 전국 아동급식카드 가맹점 인터랙티브 지도 서비스로 가족들의 주변 매장 검색 편의성 제공
-- TypeScript, React.js, Mapbox로 구축
-- [라이브 사이트](https://dream-tree.rajephon.dev/)
-
-**더존 급여명세서 웹 뷰어** - 별도 소프트웨어 설치 없이 급여명세서 복호화 및 조회가 가능한 브라우저 기반 도구
-- TypeScript, React.js로 개발
-- [라이브 사이트](https://pay.rajephon.dev/)
